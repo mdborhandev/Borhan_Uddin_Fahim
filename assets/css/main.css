@@ -731,4 +731,18 @@ h1, h2, h3, h4 {
   .resume-card {
     padding: 20px;
   }
+
+  /* Skills */
+  .skill-category {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    display: inline-block;
+  }
+
+  .skill-item {
+    margin-bottom: 12px;
+  }
 }

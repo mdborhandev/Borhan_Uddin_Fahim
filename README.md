@@ -13,14 +13,35 @@ Software Engineer | ASP.NET Core Developer building scalable enterprise solution
 
 ## Skills
 
-- ASP.NET Core MVC & Web API (90%)
-- Entity Framework Core (85%)
-- PostgreSQL & SQL Server (80%)
-- RESTful API & JWT (85%)
-- HTML5 & CSS3 (90%)
-- JavaScript & jQuery (80%)
-- Bootstrap & Tailwind (85%)
-- Git & GitHub (85%)
+### Backend
+- ASP.NET Core MVC & Web API
+- C#
+- Entity Framework Core
+- RESTful API & JWT
+
+### Database
+- PostgreSQL
+- SQL Server
+- MySQL
+- Query Optimization
+
+### Frontend
+- HTML5 & CSS3
+- JavaScript
+- Bootstrap & Tailwind
+- jQuery
+
+### DevOps & Tools
+- Git & GitHub
+- Swagger
+- Docker
+- Azure & IIS
+
+### Architecture
+- Clean Architecture
+- SOLID Principles
+- Repository Pattern
+- Dependency Injection
 
 ## Experience
 
