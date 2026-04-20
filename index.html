@@ -332,16 +332,16 @@
             <form class="contact-form">
               <div class="row g-3">
                 <div class="col-12 col-md-6">
-                  <input type="text" class="form-control" placeholder="Your Name" required>
+                  <input type="text" class="form-control" placeholder="Your Name" name="name" required>
                 </div>
                 <div class="col-12 col-md-6">
-                  <input type="email" class="form-control" placeholder="Your Email" required>
+                  <input type="email" class="form-control" placeholder="Your Email" name="email" required>
                 </div>
                 <div class="col-12">
-                  <input type="text" class="form-control" placeholder="Subject" required>
+                  <input type="text" class="form-control" placeholder="Subject" name="title" required>
                 </div>
                 <div class="col-12">
-                  <textarea class="form-control" rows="5" placeholder="Message" required></textarea>
+                  <textarea class="form-control" rows="5" placeholder="Message" name="message" required></textarea>
                 </div>
                 <div class="col-12 text-center">
                   <button type="submit" class="btn-submit">Send Message</button>
@@ -372,6 +372,7 @@
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     // Mobile Menu Toggle
     function toggleMenu() {
@@ -444,6 +445,29 @@
           link.classList.add('active');
         }
       });
+    });
+
+    (function() {
+      emailjs.init("UfmpMSg2KlcJjyIX0");
+    })();
+
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.btn-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      emailjs.sendForm('service_vxkwckv', 'template_txkht7q', this)
+        .then(function() {
+          alert('Message sent successfully!');
+          document.querySelector('.contact-form').reset();
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+        }, function(error) {
+          alert('Failed to send message. Please try again.');
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+        });
     });
   </script>
 </body>
