@@ -52,6 +52,16 @@ Software Engineer | ASP.NET Core Developer building scalable enterprise solution
 
 ## Projects
 
+### ERP - Enterprise Resource Planning
+Comprehensive enterprise ERP solution for business process management including inventory, supply chain, HR, finance, and operational workflows.
+
+**Tech:** ASP.NET Core MVC | Web API | EF Core | PostgreSQL
+
+### Atrai - Accounting Software
+Full-featured accounting software for financial management, invoicing, expense tracking, ledger management, and financial reporting.
+
+**Tech:** ASP.NET Core MVC | Web API | EF Core | PostgreSQL
+
 ### Halda - SaaS HRM Platform
 Employee management, payroll, attendance & performance modules with RBAC.
 
@@ -67,10 +77,15 @@ Comprehensive lead management for sales pipeline.
 
 **Tech:** ASP.NET Core MVC | EF Core | PostgreSQL
 
+### Gym Management
+Comprehensive gym management system for member tracking, attendance, membership plans, and workout scheduling.
+
+**Tech:** ASP.NET Core MVC | EF Core | PostgreSQL
+
 ## Stats
 
 - 200+ Active Users
-- 3 Major Projects
+- 6 Major Projects
 - 2+ Years Experience
 - 40+ Students Mentored
 
