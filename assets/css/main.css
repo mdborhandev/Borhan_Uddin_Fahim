@@ -223,6 +223,14 @@ h1, h2, h3, h4 {
   margin-bottom: 30px;
 }
 
+.typed-tagline {
+  color: var(--accent);
+}
+
+.typed-sub {
+  color: var(--accent);
+}
+
 .hero-actions {
   display: flex;
   flex-direction: column;

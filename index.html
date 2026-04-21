@@ -55,15 +55,21 @@
           <div class="col-12 col-md-10 col-lg-8">
             <h1 class="hero-name animate-fade-in-up">Mohammed Borhan Uddin Fahim</h1>
             <p class="hero-title animate-fade-in-up delay-200">
-              <span class="typed-text" data-items="Software Engineer,ASP.NET Core Developer,Backend Developer"></span>
+              <span class="typed-tagline" data-items="Software Engineer,ASP.NET Core Developer,Backend Developer"></span>
               <span class="cursor">|</span>
             </p>
-            <p class="hero-tagline animate-fade-in-up delay-400">Building enterprise solutions with clean architecture</p>
+            <p class="hero-tagline animate-fade-in-up delay-400">
+              <span class="typed-sub" data-items="Building enterprise solutions with clean architecture,Backend Developer | ASP.NET Core Specialist,Software Engineer | SaaS Architect"></span>
+              <span class="cursor">|</span>
+            </p>
+            
             
             <div class="hero-actions animate-fade-in-up delay-600">
               <div class="social-links">
                 <a href="https://www.linkedin.com/in/borhan-uddin-fahim/" target="_blank"><i class="bi bi-linkedin"></i></a>
                 <a href="https://github.com/mdborhandev" target="_blank"><i class="bi bi-github"></i></a>
+                <a href="https://www.instagram.com/iamborhan07/" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com/iamborhan07/" target="_blank"><i class="bi bi-facebook"></i></a>
                 <a href="mailto:mdborhan.dev@gmail.com"><i class="bi bi-envelope"></i></a>
                 <a href="assets/img/Borhan-Fahim-Resume.pdf" download><i class="bi bi-download"></i></a>
               </div>
@@ -423,6 +429,8 @@
           <div class="footer-social">
             <a href="https://www.linkedin.com/in/borhan-uddin-fahim/"><i class="bi bi-linkedin"></i></a>
             <a href="https://github.com/mdborhandev"><i class="bi bi-github"></i></a>
+            <a href="https://www.instagram.com/iamborhan07/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/iamborhan07/"><i class="bi bi-facebook"></i></a>
             <a href="mailto:mdborhan.dev@gmail.com"><i class="bi bi-envelope"></i></a>
           </div>
           <p class="copyright">&copy; 2025 All Rights Reserved</p>
@@ -455,17 +463,62 @@
     });
 
     // Typed Effect
-    const typedEl = document.querySelector('.typed-text');
-    if (typedEl) {
-      const items = typedEl.dataset.items.split(',');
+    const typedTagline = document.querySelector('.typed-tagline');
+    if (typedTagline) {
+      const items = typedTagline.dataset.items.split(',');
       let i = 0;
+      let currentText = '';
+      let isDeleting = false;
       let timer;
-      function type() {
-        typedEl.textContent = items[i];
-        i = (i + 1) % items.length;
-        timer = setTimeout(type, 2000);
+      function typeTagline() {
+        const fullText = items[i];
+        if (isDeleting) {
+          currentText = fullText.substring(0, currentText.length - 1);
+        } else {
+          currentText = fullText.substring(0, currentText.length + 1);
+        }
+        typedTagline.textContent = currentText;
+        let speed = isDeleting ? 50 : 100;
+        if (!isDeleting && currentText === fullText) {
+          speed = 2000;
+          isDeleting = true;
+        } else if (isDeleting && currentText === '') {
+          isDeleting = false;
+          i = (i + 1) % items.length;
+          speed = 500;
+        }
+        timer = setTimeout(typeTagline, speed);
       }
-      type();
+      typeTagline();
+    }
+
+    const typedSub = document.querySelector('.typed-sub');
+    if (typedSub) {
+      const items = typedSub.dataset.items.split(',');
+      let i = 0;
+      let currentText = '';
+      let isDeleting = false;
+      let timer;
+      function typeSub() {
+        const fullText = items[i];
+        if (isDeleting) {
+          currentText = fullText.substring(0, currentText.length - 1);
+        } else {
+          currentText = fullText.substring(0, currentText.length + 1);
+        }
+        typedSub.textContent = currentText;
+        let speed = isDeleting ? 50 : 100;
+        if (!isDeleting && currentText === fullText) {
+          speed = 2000;
+          isDeleting = true;
+        } else if (isDeleting && currentText === '') {
+          isDeleting = false;
+          i = (i + 1) % items.length;
+          speed = 500;
+        }
+        timer = setTimeout(typeSub, speed);
+      }
+      typeSub();
     }
 
     // Stats Counter Animation
