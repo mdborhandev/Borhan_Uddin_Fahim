@@ -29,6 +29,7 @@
   <nav class="floating-nav">
     <a href="#hero" class="nav-icon active" title="Home"><i class="bi bi-house"></i></a>
     <a href="#about" class="nav-icon" title="About"><i class="bi bi-person"></i></a>
+    <a href="#services" class="nav-icon" title="Services"><i class="bi bi-briefcase"></i></a>
     <a href="#skills" class="nav-icon" title="Skills"><i class="bi bi-gear"></i></a>
     <a href="#resume" class="nav-icon" title="Resume"><i class="bi bi-file-earmark-text"></i></a>
     <a href="#projects" class="nav-icon" title="Projects"><i class="bi bi-hdd-stack"></i></a>
@@ -40,6 +41,7 @@
     <div class="mobile-menu-content">
       <a href="#hero" onclick="closeMenu()"><i class="bi bi-house"></i> Home</a>
       <a href="#about" onclick="closeMenu()"><i class="bi bi-person"></i> About</a>
+      <a href="#services" onclick="closeMenu()"><i class="bi bi-briefcase"></i> Services</a>
       <a href="#skills" onclick="closeMenu()"><i class="bi bi-gear"></i> Skills</a>
       <a href="#resume" onclick="closeMenu()"><i class="bi bi-file-earmark-text"></i> Resume</a>
       <a href="#projects" onclick="closeMenu()"><i class="bi bi-hdd-stack"></i> Projects</a>
@@ -57,12 +59,10 @@
           <div class="col-12 col-md-10 col-lg-8">
             <h1 class="hero-name animate-fade-in-up">Mohammed Borhan Uddin Fahim</h1>
             <p class="hero-title animate-fade-in-up delay-200">
-              <span class="typed-tagline" data-items="Software Engineer,ASP.NET Core Developer,Backend Developer"></span>
-              <span class="cursor">|</span>
+              <span class="typed-tagline"> </span><span class="cursor">|</span>
             </p>
             <p class="hero-tagline animate-fade-in-up delay-400">
-              <span class="typed-sub" data-items="Building enterprise solutions with clean architecture,Backend Developer | ASP.NET Core Specialist,Software Engineer | SaaS Architect"></span>
-              <span class="cursor">|</span>
+              <span class="typed-sub"> </span><span class="cursor">|</span>
             </p>
             
             
@@ -78,6 +78,10 @@
               <div class="hero-cta-group">
                 <a href="#about" class="btn-explore">Explore More</a>
                 <button type="button" id="themeToggle" class="btn-glass"><i class="bi bi-moon-stars"></i> Toggle Theme</button>
+                <span class="availability-badge">
+                  <span class="pulse"></span>
+                  <span>Open to Work</span>
+                </span>
               </div>
             </div>
             <div class="hero-tech-badge animate-fade-in-up delay-800">
@@ -128,6 +132,39 @@
                 <div class="info-item"><i class="bi bi-code-slash"></i> <span>2+ Years Experience</span></div>
                 <div class="info-item"><i class="bi bi-briefcase"></i> <span>Available for Work</span></div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Services</h2>
+          <p>What I can do for you</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-laptop"></i></div>
+              <h3>Custom Web Software</h3>
+              <p>Tailored web applications built with your specific business needs, using ASP.NET Core and modern technologies.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-cloud-check"></i></div>
+              <h3>SaaS Development</h3>
+              <p>Scalable multi-tenant SaaS applications with Clean Architecture, RBAC, payment integration, and cloud deployment.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="service-card">
+              <div class="service-icon"><i class="bi bi-globe"></i></div>
+              <h3>Website Building</h3>
+              <p>Responsive, modern websites and web portals with clean design, optimal performance, and SEO-friendly structure.</p>
             </div>
           </div>
         </div>
@@ -477,64 +514,36 @@
       once: true
     });
 
-    // Typed Effect
-    const typedTagline = document.querySelector('.typed-tagline');
-    if (typedTagline) {
-      const items = typedTagline.dataset.items.split(',');
+    function typeText(selector, items) {
+      const el = document.querySelector(selector);
+      if (!el) return;
       let i = 0;
       let currentText = '';
       let isDeleting = false;
-      let timer;
-      function typeTagline() {
+      function type() {
         const fullText = items[i];
         if (isDeleting) {
           currentText = fullText.substring(0, currentText.length - 1);
         } else {
           currentText = fullText.substring(0, currentText.length + 1);
         }
-        typedTagline.textContent = currentText;
-        let speed = isDeleting ? 50 : 100;
+        el.textContent = currentText;
+        let speed = isDeleting ? 30 : 60;
         if (!isDeleting && currentText === fullText) {
           speed = 2000;
           isDeleting = true;
         } else if (isDeleting && currentText === '') {
           isDeleting = false;
           i = (i + 1) % items.length;
-          speed = 500;
+          speed = 300;
         }
-        timer = setTimeout(typeTagline, speed);
+        setTimeout(type, speed);
       }
-      typeTagline();
+      type();
     }
 
-    const typedSub = document.querySelector('.typed-sub');
-    if (typedSub) {
-      const items = typedSub.dataset.items.split(',');
-      let i = 0;
-      let currentText = '';
-      let isDeleting = false;
-      let timer;
-      function typeSub() {
-        const fullText = items[i];
-        if (isDeleting) {
-          currentText = fullText.substring(0, currentText.length - 1);
-        } else {
-          currentText = fullText.substring(0, currentText.length + 1);
-        }
-        typedSub.textContent = currentText;
-        let speed = isDeleting ? 50 : 100;
-        if (!isDeleting && currentText === fullText) {
-          speed = 2000;
-          isDeleting = true;
-        } else if (isDeleting && currentText === '') {
-          isDeleting = false;
-          i = (i + 1) % items.length;
-          speed = 500;
-        }
-        timer = setTimeout(typeSub, speed);
-      }
-      typeSub();
-    }
+    typeText('.typed-tagline', ['Software Engineer', 'ASP.NET Core Developer', 'Backend Developer']);
+    typeText('.typed-sub', ['Building enterprise solutions with clean architecture', 'Backend Developer | ASP.NET Core Specialist', 'Software Engineer | SaaS Architect']);
 
     // Stats Counter Animation
     const stats = document.querySelectorAll('.stat-number');
@@ -623,11 +632,18 @@
     const preferredTheme = localStorage.getItem('site-theme');
     if (preferredTheme === 'light') {
       document.body.classList.add('light-theme');
+      themeToggle.innerHTML = '<i class="bi bi-sun"></i> Toggle Theme';
     }
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
         document.body.classList.toggle('light-theme');
-        localStorage.setItem('site-theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+        if (document.body.classList.contains('light-theme')) {
+          themeToggle.innerHTML = '<i class="bi bi-sun"></i> Toggle Theme';
+          localStorage.setItem('site-theme', 'light');
+        } else {
+          themeToggle.innerHTML = '<i class="bi bi-moon-stars"></i> Toggle Theme';
+          localStorage.setItem('site-theme', 'dark');
+        }
       });
     }
 
@@ -666,7 +682,7 @@
       cursorGlow.style.top = `${e.clientY}px`;
     });
 
-    
+  </script>
 </body>
 
 </html>
