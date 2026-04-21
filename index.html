@@ -20,6 +20,9 @@
 </head>
 
 <body class="index-page body-dark">
+  <div class="cursor-glow"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
 
   <i class="header-toggle bi bi-list" onclick="toggleMenu()"></i>
 
@@ -64,10 +67,24 @@
                 <a href="mailto:mdborhan.dev@gmail.com"><i class="bi bi-envelope"></i></a>
                 <a href="assets/img/Borhan-Fahim-Resume.pdf" download><i class="bi bi-download"></i></a>
               </div>
-              <a href="#about" class="btn-explore">Explore More</a>
+              <div class="hero-cta-group">
+                <a href="#about" class="btn-explore">Explore More</a>
+                <button type="button" id="themeToggle" class="btn-glass"><i class="bi bi-moon-stars"></i> Toggle Theme</button>
+              </div>
+            </div>
+            <div class="hero-tech-stack animate-fade-in-up delay-800">
+              <span>ASP.NET Core</span>
+              <span>Web API</span>
+              <span>PostgreSQL</span>
+              <span>Clean Architecture</span>
             </div>
           </div>
         </div>
+      </div>
+      <div class="hero-3d-cards">
+        <div class="floating-card card-a">API</div>
+        <div class="floating-card card-b">SaaS</div>
+        <div class="floating-card card-c">Cloud</div>
       </div>
       <div class="scroll-indicator">
         <a href="#about"><i class="bi bi-chevron-down"></i></a>
@@ -316,9 +333,14 @@
           <h2>Projects</h2>
           <p>Production-level SaaS applications</p>
         </div>
-        
+        <div class="project-filter text-center mb-4">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="erp">ERP/Finance</button>
+          <button class="filter-btn" data-filter="hrm">HRM</button>
+          <button class="filter-btn" data-filter="productivity">Productivity</button>
+        </div>
         <div class="row g-4">
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 project-item" data-category="erp">
             <div class="project-card">
               <div class="project-icon"><i class="bi bi-building"></i></div>
               <h4>ERP - Enterprise Resource Planning</h4>
@@ -326,7 +348,7 @@
               <div class="project-tech">ASP.NET Core MVC | Web API | EF Core | PostgreSQL</div>
             </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 project-item" data-category="erp">
             <div class="project-card">
               <div class="project-icon"><i class="bi bi-calculator"></i></div>
               <h4>Atrai - Accounting Software</h4>
@@ -334,7 +356,7 @@
               <div class="project-tech">ASP.NET Core MVC | Web API | EF Core | PostgreSQL</div>
             </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 project-item" data-category="hrm">
             <div class="project-card">
               <div class="project-icon"><i class="bi bi-people"></i></div>
               <h4>Halda - SaaS HRM Platform</h4>
@@ -342,7 +364,7 @@
               <div class="project-tech">ASP.NET Core MVC | Web API | EF Core | PostgreSQL</div>
             </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 project-item" data-category="productivity">
             <div class="project-card">
               <div class="project-icon"><i class="bi bi-bar-chart"></i></div>
               <h4>OKR - Goal & Task Management</h4>
@@ -350,7 +372,7 @@
               <div class="project-tech">ASP.NET Core MVC | EF Core | PostgreSQL</div>
             </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 project-item" data-category="productivity">
             <div class="project-card">
               <div class="project-icon"><i class="bi bi-lightbulb"></i></div>
               <h4>SmartSLead - Lead Management</h4>
@@ -358,7 +380,7 @@
               <div class="project-tech">ASP.NET Core MVC | EF Core | PostgreSQL</div>
             </div>
           </div>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 project-item" data-category="hrm">
             <div class="project-card">
               <div class="project-icon"><i class="bi bi-heart-pulse"></i></div>
               <h4>Gym Management</h4>
@@ -451,6 +473,9 @@
         </div>
       </div>
     </footer>
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
   </main>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -551,6 +576,70 @@
           btn.textContent = 'Send Message';
           btn.disabled = false;
         });
+    });
+
+    // 3D tilt interaction on cards
+    const tiltItems = document.querySelectorAll('.project-card, .resume-card, .stat-item');
+    tiltItems.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateY = ((x / rect.width) - 0.5) * 10;
+        const rotateX = ((y / rect.height) - 0.5) * -10;
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    // Theme toggle (new feature)
+    const themeToggle = document.getElementById('themeToggle');
+    const preferredTheme = localStorage.getItem('site-theme');
+    if (preferredTheme === 'light') {
+      document.body.classList.add('light-theme');
+    }
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+        localStorage.setItem('site-theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+      });
+    }
+
+    // Projects filter (new feature)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectItems = document.querySelectorAll('.project-item');
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const selected = button.dataset.filter;
+        projectItems.forEach(item => {
+          const shouldShow = selected === 'all' || item.dataset.category === selected;
+          item.style.display = shouldShow ? '' : 'none';
+        });
+      });
+    });
+
+    // Back to top (new feature)
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Cursor glow effect
+    const cursorGlow = document.querySelector('.cursor-glow');
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
     });
 
     </script>
