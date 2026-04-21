@@ -32,6 +32,7 @@
     <a href="#skills" class="nav-icon" title="Skills"><i class="bi bi-gear"></i></a>
     <a href="#resume" class="nav-icon" title="Resume"><i class="bi bi-file-earmark-text"></i></a>
     <a href="#projects" class="nav-icon" title="Projects"><i class="bi bi-hdd-stack"></i></a>
+    <a href="#cv" class="nav-icon" title="CV"><i class="bi bi-file-earmark-pdf"></i></a>
     <a href="#contact" class="nav-icon" title="Contact"><i class="bi bi-envelope"></i></a>
   </nav>
 
@@ -42,6 +43,7 @@
       <a href="#skills" onclick="closeMenu()"><i class="bi bi-gear"></i> Skills</a>
       <a href="#resume" onclick="closeMenu()"><i class="bi bi-file-earmark-text"></i> Resume</a>
       <a href="#projects" onclick="closeMenu()"><i class="bi bi-hdd-stack"></i> Projects</a>
+      <a href="#cv" onclick="closeMenu()"><i class="bi bi-file-earmark-pdf"></i> CV</a>
       <a href="#contact" onclick="closeMenu()"><i class="bi bi-envelope"></i> Contact</a>
     </div>
   </header>
@@ -71,6 +73,7 @@
                 <a href="https://www.instagram.com/iamborhan07/" target="_blank"><i class="bi bi-instagram"></i></a>
                 <a href="https://www.facebook.com/iamborhan07/" target="_blank"><i class="bi bi-facebook"></i></a>
                 <a href="mailto:mdborhan.dev@gmail.com"><i class="bi bi-envelope"></i></a>
+                <a href="#" id="previewCV"><i class="bi bi-file-earmark-text"></i></a>
                 <a href="assets/img/Borhan-Fahim-Resume.pdf" download><i class="bi bi-download"></i></a>
               </div>
               <div class="hero-cta-group">
@@ -420,6 +423,19 @@
       </div>
     </section>
 
+    <!-- CV Preview Section -->
+    <section id="cv" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>CV</h2>
+          <p>View my professional resume</p>
+        </div>
+        <div class="cv-preview">
+          <embed src="assets/img/Borhan-Fahim-Resume.pdf" type="application/pdf">
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -649,6 +665,12 @@
     window.addEventListener('mousemove', (e) => {
       cursorGlow.style.left = `${e.clientX}px`;
       cursorGlow.style.top = `${e.clientY}px`;
+    });
+
+    // CV Preview
+    document.getElementById('previewCV').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.open('assets/img/Borhan-Fahim-Resume.pdf', '_blank');
     });
 
     </script>
