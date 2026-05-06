@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Atrai - Accounting Software | Mohammed Borhan Uddin Fahim</title>
+  <meta content="Full-featured accounting software for financial management, invoicing, expense tracking, ledger management, and financial reporting." name="description">
+
+  <link href="../assets/img/Borhan.png" rel="icon">
+  <link href="../assets/img/Borhan.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <style>
+    .project-hero {
+      padding: 120px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(123, 44, 191, 0.05) 0%, transparent 100%);
+      z-index: -1;
+    }
+
+    .project-icon-large {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #246bff 0%, #6a5cff 100%);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-icon-large i {
+      font-size: 48px;
+      color: white;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .meta-badge {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      color: #7b2cbf;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: var(--text-secondary);
+    }
+
+    .feature-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #7b2cbf;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .tech-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .tech-pill:hover {
+      border-color: #7b2cbf;
+      transform: translateY(-2px);
+    }
+
+    .project-gallery {
+      margin-top: 40px;
+    }
+
+    .gallery-image {
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .gallery-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-image:hover img {
+      transform: scale(1.02);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .project-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .project-link-btn.primary {
+      background: linear-gradient(135deg, #246bff 0%, #6a5cff 100%);
+      color: white;
+      border: none;
+    }
+
+    .project-link-btn.secondary {
+      background: transparent;
+      border: 2px solid #7b2cbf;
+      color: #7b2cbf;
+    }
+
+    .project-link-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(123, 44, 191, 0.3);
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 20px;
+      border-radius: 12px;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: var(--bg-card);
+      transform: translateX(-4px);
+    }
+
+    @media (max-width: 768px) {
+      .project-hero {
+        padding: 100px 0 40px;
+      }
+
+      .project-icon-large {
+        width: 80px;
+        height: 80px;
+      }
+
+      .project-icon-large i {
+        font-size: 32px;
+      }
+
+      .back-button {
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body class="index-page body-dark">
+  <div class="cursor-glow"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+
+  <a href="index.html#projects" class="back-button">
+    <i class="bi bi-arrow-left"></i>
+    <span>Back to Projects</span>
+  </a>
+
+  <main>
+    <!-- Project Hero Section -->
+    <section id="project-hero" class="project-hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="row align-items-center" data-aos="fade-up">
+              <div class="col-12 text-center">
+                <div class="project-icon-large">
+                  <i class="bi bi-calculator"></i>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">Atrai - Accounting Software</h1>
+                <p class="lead text-secondary mb-4">Full-featured accounting software for financial management</p>
+                <div class="project-meta justify-content-center">
+                  <span class="meta-badge"><i class="bi bi-building"></i> Enterprise</span>
+                  <span class="meta-badge"><i class="bi bi-code-slash"></i> Full-Stack</span>
+                  <span class="meta-badge"><i class="bi bi-database"></i> PostgreSQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section id="project-details" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-12">
+                <div class="glass-card p-4">
+                  <h3 class="mb-4">About this Project</h3>
+                  <p class="lead">Atrai is a comprehensive accounting solution designed for small to medium businesses to manage their financial operations efficiently. It provides complete bookkeeping capabilities, financial reporting, and compliance tools in an intuitive interface.</p>
+                  <div class="mt-4">
+                    <h5 class="fw-semibold mb-3">Project Links</h5>
+                    <div class="project-links">
+                      <a href="#" class="project-link-btn primary" target="_blank">
+                        <i class="bi bi-play-circle"></i> Live Demo
+                      </a>
+                      <a href="https://github.com/mdborhandev/atrai-accounting" class="project-link-btn secondary" target="_blank">
+                        <i class="bi bi-github"></i> Source Code
+                      </a>
+                      <a href="#" class="project-link-btn secondary" target="_blank">
+                        <i class="bi bi-file-text"></i> Documentation
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Features Section -->
+    <section id="project-features" class="section bg-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Key Features</h2>
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-1">
+                <div class="glass-card p-4">
+                  <ul class="feature-list">
+                    <li>General ledger with double-entry bookkeeping system</li>
+                    <li>Invoicing and billing with customizable templates</li>
+                    <li>Expense tracking and receipt management</li>
+                    <li>Bank reconciliation and transaction management</li>
+                    <li>Financial statements: Balance Sheet, P&L, Cash Flow</li>
+                    <li>Tax calculation and VAT/GST compliance</li>
+                    <li>Multi-currency support for international transactions</li>
+                    <li>Automated financial reports and analytics</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Tech Stack Section -->
+    <section id="project-tech" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Technologies Used</h2>
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-1">
+                <div class="glass-card p-4">
+                  <div class="tech-stack">
+                    <div class="tech-pill" style="border-color: #7b2cbf30;">
+                      <i class="bi bi-code-slash me-2" style="color: #7b2cbf;"></i>ASP.NET Core MVC
+                    </div>
+                    <div class="tech-pill" style="border-color: #7b2cbf30;">
+                      <i class="bi bi-code-slash me-2" style="color: #7b2cbf;"></i>ASP.NET Core Web API
+                    </div>
+                    <div class="tech-pill" style="border-color: #7b2cbf30;">
+                      <i class="bi bi-code-slash me-2" style="color: #7b2cbf;"></i>Entity Framework Core
+                    </div>
+                    <div class="tech-pill" style="border-color: #7b2cbf30;">
+                      <i class="bi bi-code-slash me-2" style="color: #7b2cbf;"></i>PostgreSQL
+                    </div>
+                    <div class="tech-pill" style="border-color: #7b2cbf30;">
+                      <i class="bi bi-code-slash me-2" style="color: #7b2cbf;"></i>Chart.js for financial charts
+                    </div>
+                    <div class="tech-pill" style="border-color: #7b2cbf30;">
+                      <i class="bi bi-code-slash me-2" style="color: #7b2cbf;"></i>PDF generation library
+                    </div>
+                    <div class="tech-pill" style="border-color: #7b2cbf30;">
+                      <i class="bi bi-code-slash me-2" style="color: #7b2cbf;"></i>Bootstrap 5
+                    </div>
+                    <div class="tech-pill" style="border-color: #7b2cbf30;">
+                      <i class="bi bi-code-slash me-2" style="color: #7b2cbf;"></i>RESTful API
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Gallery Section -->
+    <section id="project-gallery" class="section bg-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="row">
+              <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                <div class="gallery-image">
+                  <img src="assets/img/projects/atrai-dashboard.jpg" alt="Atrai Dashboard">
+                  <div class="p-3 bg-card">Financial overview dashboard</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-image">
+                  <img src="assets/img/projects/atrai-invoice.jpg" alt="Invoice Management">
+                  <div class="p-3 bg-card">Invoice creation and management</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-image">
+                  <img src="assets/img/projects/atrai-reports.jpg" alt="Financial Reports">
+                  <div class="p-3 bg-card">Detailed financial reporting</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 600,
+      easing: 'ease-out',
+      once: true
+    });
+
+    // Cursor glow effect
+    const cursorGlow = document.querySelector('.cursor-glow');
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    });
+  </script>
+</body>
+
+</html>

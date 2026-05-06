@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>OKR - Goal & Task Management | Mohammed Borhan Uddin Fahim</title>
+  <meta content="OKR-based team goal tracking with performance dashboards for aligning, focusing, and achieving objectives across organizations." name="description">
+
+  <link href="../assets/img/Borhan.png" rel="icon">
+  <link href="../assets/img/Borhan.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <style>
+    .project-hero {
+      padding: 120px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(78, 205, 196, 0.05) 0%, transparent 100%);
+      z-index: -1;
+    }
+
+    .project-icon-large {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-icon-large i {
+      font-size: 48px;
+      color: white;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .meta-badge {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 14px;
+      color: #4ecdc4;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 12px;
+      color: var(--text-secondary);
+    }
+
+    .feature-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #4ecdc4;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .tech-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .tech-pill:hover {
+      border-color: #4ecdc4;
+      transform: translateY(-2px);
+    }
+
+    .project-gallery {
+      margin-top: 40px;
+    }
+
+    .gallery-image {
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .gallery-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-image:hover img {
+      transform: scale(1.02);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .project-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .project-link-btn.primary {
+      background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+      color: white;
+      border: none;
+    }
+
+    .project-link-btn.secondary {
+      background: transparent;
+      border: 2px solid #4ecdc4;
+      color: #4ecdc4;
+    }
+
+    .project-link-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 20px;
+      border-radius: 12px;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: var(--bg-card);
+      transform: translateX(-4px);
+    }
+
+    @media (max-width: 768px) {
+      .project-hero {
+        padding: 100px 0 40px;
+      }
+
+      .project-icon-large {
+        width: 80px;
+        height: 80px;
+      }
+
+      .project-icon-large i {
+        font-size: 32px;
+      }
+
+      .back-button {
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body class="index-page body-dark">
+  <div class="cursor-glow"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+
+  <a href="index.html#projects" class="back-button">
+    <i class="bi bi-arrow-left"></i>
+    <span>Back to Projects</span>
+  </a>
+
+  <main>
+    <!-- Project Hero Section -->
+    <section id="project-hero" class="project-hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="row align-items-center" data-aos="fade-up">
+              <div class="col-12 text-center">
+                <div class="project-icon-large">
+                  <i class="bi bi-bar-chart"></i>
+                </div>
+                <h1 class="display-4 fw-bold mb-3">OKR - Goal & Task Management</h1>
+                <p class="lead text-secondary mb-4">OKR-based team goal tracking with performance dashboards</p>
+                <div class="project-meta justify-content-center">
+                  <span class="meta-badge"><i class="bi bi-bullseye"></i> Goal Tracking</span>
+                  <span class="meta-badge"><i class="bi bi-people"></i> Team Collaboration</span>
+                  <span class="meta-badge"><i class="bi bi-graph-up"></i> Analytics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section id="project-details" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="row" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-12">
+                <div class="glass-card p-4">
+                  <h3 class="mb-4">About this Project</h3>
+                  <p class="lead">OKR (Objectives and Key Results) is a goal management platform that helps teams set, track, and achieve their objectives. It promotes alignment, focus, and accountability across organizations.</p>
+                  <div class="mt-4">
+                    <h5 class="fw-semibold mb-3">Project Links</h5>
+                    <div class="project-links">
+                      <a href="#" class="project-link-btn primary" target="_blank">
+                        <i class="bi bi-play-circle"></i> Live Demo
+                      </a>
+                      <a href="https://github.com/mdborhandev/okr-tracker" class="project-link-btn secondary" target="_blank">
+                        <i class="bi bi-github"></i> Source Code
+                      </a>
+                      <a href="#" class="project-link-btn secondary" target="_blank">
+                        <i class="bi bi-file-text"></i> Documentation
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Features Section -->
+    <section id="project-features" class="section bg-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Key Features</h2>
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-1">
+                <div class="glass-card p-4">
+                  <ul class="feature-list">
+                    <li>OKR framework for setting company, team, and individual objectives</li>
+                    <li>Key Results tracking with progress metrics</li>
+                    <li>Task management linked to objectives</li>
+                    <li>Weekly check-ins and progress updates</li>
+                    <li>Performance dashboards with visual analytics</li>
+                    <li>Team alignment views and dependency mapping</li>
+                    <li>Integration with project management tools</li>
+                    <li>Reporting and insights for leadership</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Tech Stack Section -->
+    <section id="project-tech" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Technologies Used</h2>
+            <div class="row">
+              <div class="col-12 col-lg-10 offset-lg-1">
+                <div class="glass-card p-4">
+                  <div class="tech-stack">
+                    <div class="tech-pill" style="border-color: #4ecdc430;">
+                      <i class="bi bi-code-slash me-2" style="color: #4ecdc4;"></i>ASP.NET Core MVC
+                    </div>
+                    <div class="tech-pill" style="border-color: #4ecdc430;">
+                      <i class="bi bi-code-slash me-2" style="color: #4ecdc4;"></i>Entity Framework Core
+                    </div>
+                    <div class="tech-pill" style="border-color: #4ecdc430;">
+                      <i class="bi bi-code-slash me-2" style="color: #4ecdc4;"></i>PostgreSQL
+                    </div>
+                    <div class="tech-pill" style="border-color: #4ecdc430;">
+                      <i class="bi bi-code-slash me-2" style="color: #4ecdc4;"></i>Chart.js for visualizations
+                    </div>
+                    <div class="tech-pill" style="border-color: #4ecdc430;">
+                      <i class="bi bi-code-slash me-2" style="color: #4ecdc4;"></i>SignalR for real-time updates
+                    </div>
+                    <div class="tech-pill" style="border-color: #4ecdc430;">
+                      <i class="bi bi-code-slash me-2" style="color: #4ecdc4;"></i>Bootstrap 5
+                    </div>
+                    <div class="tech-pill" style="border-color: #4ecdc430;">
+                      <i class="bi bi-code-slash me-2" style="color: #4ecdc4;"></i>Repository Pattern
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Gallery Section -->
+    <section id="project-gallery" class="section bg-secondary">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="row">
+              <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="0">
+                <div class="gallery-image">
+                  <img src="assets/img/projects/okr-dashboard.jpg" alt="OKR Dashboard">
+                  <div class="p-3 bg-card">Company-wide OKR overview</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="gallery-image">
+                  <img src="assets/img/projects/okr-objectives.jpg" alt="Objectives View">
+                  <div class="p-3 bg-card">Team objectives and key results</div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-image">
+                  <img src="assets/img/projects/okr-progress.jpg" alt="Progress Tracking">
+                  <div class="p-3 bg-card">Progress tracking and analytics</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 600,
+      easing: 'ease-out',
+      once: true
+    });
+
+    // Cursor glow effect
+    const cursorGlow = document.querySelector('.cursor-glow');
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    });
+  </script>
+</body>
+
+</html>
