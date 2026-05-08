@@ -1,0 +1,16 @@
+{
+  "name": "Mohammed Borhan Uddin Fahim - Software Engineer",
+  "short_name": "Borhan Fahim",
+  "description": "Backend-focused Software Engineer specializing in ASP.NET Core, Web API, and PostgreSQL",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00d4ff",
+  "icons": [
+    {
+      "src": "assets/img/Borhan.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

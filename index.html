@@ -4,11 +4,32 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Mohammed Borhan Uddin Fahim | Software Engineer</title>
+  <title data-en="Mohammed Borhan Uddin Fahim | Software Engineer" data-bn="মোহাম্মদ বোরহান উদ্দিন ফাহিম | সফটওয়্যার ইঞ্জিনিয়ার">Mohammed Borhan Uddin Fahim | Software Engineer</title>
   <meta content="Backend-focused Software Engineer | ASP.NET Core Developer" name="description">
 
   <link href="assets/img/Borhan.png" rel="icon">
   <link href="assets/img/Borhan.png" rel="apple-touch-icon">
+  <link rel="manifest" href="manifest.json">
+
+  <meta property="og:title" content="Mohammed Borhan Uddin Fahim | Software Engineer">
+  <meta property="og:description" content="Backend-focused Software Engineer specializing in ASP.NET Core, Web API, and PostgreSQL">
+  <meta property="og:image" content="assets/img/Borhan.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohammed Borhan Uddin Fahim | Software Engineer">
+  <meta name="twitter:description" content="Backend-focused Software Engineer specializing in ASP.NET Core, Web API, and PostgreSQL">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohammed Borhan Uddin Fahim",
+    "url": "https://mdborhandev.github.io",
+    "jobTitle": "Software Engineer",
+    "knowsAbout": ["ASP.NET Core", "C#", "PostgreSQL", "Web API", "Entity Framework Core"],
+    "email": "mdborhan.dev@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Chattogram", "addressCountry": "Bangladesh" }
+  }
+  </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
@@ -20,11 +41,16 @@
 </head>
 
 <body class="index-page body-dark">
+  <div class="scroll-progress"></div>
   <div class="cursor-glow"></div>
   <div class="orb orb-one"></div>
   <div class="orb orb-two"></div>
 
   <i class="header-toggle bi bi-list" onclick="toggleMenu()"></i>
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">EN</button>
+    <button class="lang-btn" data-lang="bn" onclick="setLanguage('bn')">বাং</button>
+  </div>
 
   <nav class="floating-nav">
     <a href="#hero" class="nav-icon active" title="Home"><i class="bi bi-house"></i></a>
@@ -35,6 +61,7 @@
     <a href="#projects" class="nav-icon" title="Projects"><i class="bi bi-hdd-stack"></i></a>
     <a href="#cv" class="nav-icon" title="CV"><i class="bi bi-file-earmark-pdf"></i></a>
     <a href="#contact" class="nav-icon" title="Contact"><i class="bi bi-envelope"></i></a>
+    <a class="nav-icon" title="Chat with me" onclick="toggleChat()" style="cursor:pointer;"><i class="bi bi-chat-dots"></i></a>
   </nav>
 
   <header id="header" class="mobile-menu">
@@ -49,8 +76,25 @@
       <a href="#projects" onclick="closeMenu()"><i class="bi bi-hdd-stack"></i> Projects</a>
       <a href="#cv" onclick="closeMenu()"><i class="bi bi-file-earmark-pdf"></i> CV</a>
       <a href="#contact" onclick="closeMenu()"><i class="bi bi-envelope"></i> Contact</a>
+      <a href="#" onclick="closeMenu();setTimeout(toggleChat,300)"><i class="bi bi-chat-dots"></i> Ask Me</a>
     </div>
   </header>
+
+  <canvas id="particles-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <span><i class="bi bi-robot"></i> Ask Borhan</span>
+      <button onclick="toggleChat()"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-msg bot">Hi! Ask me about Borhan's skills, experience, or projects.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Type your question..." onkeydown="if(event.key==='Enter') sendChat()">
+      <button onclick="sendChat()"><i class="bi bi-send"></i></button>
+    </div>
+  </div>
 
   <main>
     <!-- Hero Section -->
@@ -59,7 +103,7 @@
       <div class="container">
         <div class="row hero-content-row align-items-center justify-content-center text-center">
           <div class="col-12 col-md-10 col-lg-8">
-            <h1 class="hero-name animate-fade-in-up">Mohammed Borhan Uddin Fahim</h1>
+            <h1 class="hero-name animate-fade-in-up" data-en="Mohammed Borhan Uddin Fahim" data-bn="মোহাম্মদ বোরহান উদ্দিন ফাহিম">Mohammed Borhan Uddin Fahim</h1>
             <p class="hero-title animate-fade-in-up delay-200">
               <span class="typed-tagline"> </span><span class="cursor">|</span>
             </p>
@@ -116,7 +160,7 @@
         <div class="row align-items-center g-4">
           <div class="col-12 col-md-4 text-center">
             <div class="about-img-wrapper">
-              <img src="assets/img/Borhan.png" alt="Borhan" class="about-img">
+              <div class="skeleton" style="width:200px;height:200px;border-radius:50%;margin:0 auto;"><img src="assets/img/Borhan.png" alt="Borhan" class="about-img" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
             </div>
           </div>
           <div class="col-12 col-md-8">
@@ -205,6 +249,60 @@
               <p>Students Mentored</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Testimonials</h2>
+          <p>What people say about working with me</p>
+        </div>
+        <div class="testimonial-wrapper">
+          <button class="testimonial-arrow testimonial-prev" onclick="prevTestimonial()"><i class="bi bi-chevron-left"></i></button>
+          <div class="testimonial-track">
+            <div class="testimonial-item active">
+              <div class="testimonial-avatar"><img src="assets/img/fahad.jpg" alt="Fahad" loading="lazy"></div>
+              <div class="testimonial-text">
+                <p>"Exceptional work ethic and technical skills. Delivered high-quality solutions consistently."</p>
+                <h5>Fahad</h5>
+                <span>Colleague</span>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <div class="testimonial-avatar"><img src="assets/img/masud.jpg" alt="Masud" loading="lazy"></div>
+              <div class="testimonial-text">
+                <p>"A dedicated professional with strong problem-solving abilities and great attention to detail."</p>
+                <h5>Masud</h5>
+                <span>Team Lead</span>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <div class="testimonial-avatar"><img src="assets/img/roman.png" alt="Roman" loading="lazy"></div>
+              <div class="testimonial-text">
+                <p>"Highly recommend Borhan for any backend development role. He brings value to every project."</p>
+                <h5>Roman</h5>
+                <span>Peer</span>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <div class="testimonial-avatar"><img src="assets/img/sowrap.jpg" alt="Sowrab" loading="lazy"></div>
+              <div class="testimonial-text">
+                <p>"Great mentor and developer. His knowledge of ASP.NET Core and system design is impressive."</p>
+                <h5>Sowrab</h5>
+                <span>Mentee</span>
+              </div>
+            </div>
+          </div>
+          <button class="testimonial-arrow testimonial-next" onclick="nextTestimonial()"><i class="bi bi-chevron-right"></i></button>
+        </div>
+        <div class="testimonial-dots" id="testimonial-dots">
+          <span class="testimonial-dot active" onclick="showTestimonial(0)"></span>
+          <span class="testimonial-dot" onclick="showTestimonial(1)"></span>
+          <span class="testimonial-dot" onclick="showTestimonial(2)"></span>
+          <span class="testimonial-dot" onclick="showTestimonial(3)"></span>
         </div>
       </div>
     </section>
@@ -437,6 +535,68 @@
       </div>
     </section>
 
+    <!-- GitHub Activity Section -->
+    <section id="github" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>GitHub Activity</h2>
+          <p>Recent open source contributions</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-8">
+            <div class="glass-card p-4" id="github-feed">
+              <p style="color:var(--text-secondary);text-align:center;">Loading activity...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Latest Articles</h2>
+          <p>Thoughts on software development and engineering</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-file-earmark-code"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">ASP.NET Core</span>
+                <h4>Building Scalable APIs with Clean Architecture</h4>
+                <p>How I structure enterprise-grade ASP.NET Core applications for maintainability and testability.</p>
+                <a href="https://dev.to" target="_blank" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-database"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">PostgreSQL</span>
+                <h4>Optimizing Database Performance in SaaS Apps</h4>
+                <p>Tips and patterns I use for query optimization and database design in multi-tenant systems.</p>
+                <a href="https://dev.to" target="_blank" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-shield-check"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">Security</span>
+                <h4>JWT Authentication Best Practices</h4>
+                <p>Implementing secure token-based authentication in ASP.NET Core applications.</p>
+                <a href="https://dev.to" target="_blank" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section">
       <div class="container">
@@ -538,9 +698,14 @@
     </button>
   </main>
 
-   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-   <script src="assets/vendor/aos/aos.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+    </script>
    <script>
      // Mobile Menu Toggle
       function toggleMenu() {
@@ -727,6 +892,189 @@
       cursorGlow.style.left = `${e.clientX}px`;
       cursorGlow.style.top = `${e.clientY}px`;
     });
+
+    // Scroll progress bar
+    const scrollProgress = document.querySelector('.scroll-progress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = `${Math.min(progress, 100)}%`;
+    });
+
+    // Theme transition
+    const themeToggleBtn = document.getElementById('themeToggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.add('theme-transitioning');
+        setTimeout(() => document.body.classList.remove('theme-transitioning'), 500);
+      });
+    }
+
+    // Particles canvas
+    const particlesCanvas = document.getElementById('particles-canvas');
+    if (particlesCanvas) {
+      const ctx = particlesCanvas.getContext('2d');
+      let particles = [];
+      const count = 80;
+      function resizeCanvas() {
+        particlesCanvas.width = window.innerWidth;
+        particlesCanvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * particlesCanvas.width;
+          this.y = Math.random() * particlesCanvas.height;
+          this.size = Math.random() * 2 + 0.5;
+          this.speedX = (Math.random() - 0.5) * 0.6;
+          this.speedY = (Math.random() - 0.5) * 0.6;
+          this.opacity = Math.random() * 0.5 + 0.1;
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.x < 0 || this.x > particlesCanvas.width || this.y < 0 || this.y > particlesCanvas.height) {
+            this.reset();
+          }
+        }
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
+          ctx.fill();
+        }
+      }
+      for (let i = 0; i < count; i++) particles.push(new Particle());
+      function animateParticles() {
+        ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 150) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(0, 212, 255, ${0.06 * (1 - dist / 150)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+    }
+
+    // GitHub activity
+    async function loadGitHubActivity() {
+      const feed = document.getElementById('github-feed');
+      if (!feed) return;
+      try {
+        const res = await fetch('https://api.github.com/users/mdborhandev/events?per_page=5');
+        const events = await res.json();
+        feed.innerHTML = events.map(e => {
+          const icon = e.type === 'PushEvent' ? 'bi-arrow-up-circle' : e.type === 'CreateEvent' ? 'bi-plus-circle' : e.type === 'IssuesEvent' ? 'bi-exclamation-circle' : 'bi-star';
+          const desc = e.type === 'PushEvent' ? `Pushed to ${e.repo.name}` : e.type === 'CreateEvent' ? `Created ${e.repo.name}` : e.type === 'IssuesEvent' ? `Opened issue in ${e.repo.name}` : `Activity in ${e.repo.name}`;
+          return `<div class="github-item"><i class="bi ${icon}"></i><span>${desc}</span><small>${new Date(e.created_at).toLocaleDateString()}</small></div>`;
+        }).join('');
+      } catch {
+        feed.innerHTML = '<p style="color:var(--text-secondary)">Unable to load GitHub activity</p>';
+      }
+    }
+    loadGitHubActivity();
+
+    // Testimonials carousel
+    let testimonialIndex = 0;
+    function showTestimonial(i) {
+      const items = document.querySelectorAll('.testimonial-item');
+      const dots = document.querySelectorAll('.testimonial-dot');
+      if (!items.length) return;
+      testimonialIndex = (i + items.length) % items.length;
+      items.forEach((item, idx) => item.classList.toggle('active', idx === testimonialIndex));
+      dots.forEach((dot, idx) => dot.classList.toggle('active', idx === testimonialIndex));
+    }
+    function nextTestimonial() { showTestimonial(testimonialIndex + 1); }
+    function prevTestimonial() { showTestimonial(testimonialIndex - 1); }
+    document.addEventListener('DOMContentLoaded', () => showTestimonial(0));
+
+    // i18n toggle
+    let currentLang = localStorage.getItem('site-lang') || 'en';
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('site-lang', lang);
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = lang === 'en' ? el.dataset.en : el.dataset.bn;
+      });
+      document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+        el.placeholder = lang === 'en' ? el.dataset.enPlaceholder : el.dataset.bnPlaceholder;
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    }
+    setLanguage(currentLang);
+
+    // Loading skeleton
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('skeleton'));
+    });
+
+    // Chat widget
+    function toggleChat() {
+      document.getElementById('chatWidget').classList.toggle('open');
+      document.getElementById('chatInput').focus();
+    }
+
+    function sendChat() {
+      const input = document.getElementById('chatInput');
+      const msg = input.value.trim();
+      if (!msg) return;
+      const body = document.getElementById('chatBody');
+      body.innerHTML += `<div class="chat-msg user">${msg}</div>`;
+      input.value = '';
+      setTimeout(() => {
+        const answers = {
+          'skills': 'Borhan specializes in ASP.NET Core, C#, Web API, EF Core, PostgreSQL, SQL Server, and Bootstrap.',
+          'experience': 'He has 2+ years of experience as a Junior Programmer at Kodeblaze and also works as a Guest Trainer at NPI College.',
+          'projects': 'He has built 6+ projects: ERP, Atrai (Accounting), Halda (HRM), OKR, SmartSLead, and Gym Management.',
+          'contact': 'You can email him at mdborhan.dev@gmail.com or connect on LinkedIn.',
+          'education': 'He holds a Diploma in Computer Technology from Narsingdi Polytechnic Institute and SSC from Narsingdi High School.',
+          'default': `Great question! Borhan is a backend-focused Software Engineer skilled in ASP.NET Core, C#, PostgreSQL, and building enterprise SaaS applications.`
+        };
+        const lower = msg.toLowerCase();
+        let reply = answers.default;
+        if (lower.includes('skill') || lower.includes('tech')) reply = answers.skills;
+        else if (lower.includes('experience') || lower.includes('work')) reply = answers.experience;
+        else if (lower.includes('project')) reply = answers.projects;
+        else if (lower.includes('contact') || lower.includes('email')) reply = answers.contact;
+        else if (lower.includes('education') || lower.includes('study')) reply = answers.education;
+        body.innerHTML += `<div class="chat-msg bot">${reply}</div>`;
+        body.scrollTop = body.scrollHeight;
+      }, 300);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    // Page transition for project links
+    document.querySelectorAll('.project-card-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => { window.location.href = href; }, 300);
+      });
+    });
+
+    // Page load fade-in
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.4s ease';
+    window.addEventListener('load', () => { document.body.style.opacity = '1'; });
 
   </script>
 </body>
