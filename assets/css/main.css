@@ -1348,6 +1348,42 @@ h1, h2, h3, h4 {
   }
 }
 
+.feature-item {
+  text-align: center;
+  padding: 20px 12px;
+  border-radius: 12px;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.feature-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--gradient);
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.feature-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
 @media (min-width: 769px) and (max-width: 1199px) {
   .hero-content-row {
     padding-top: 84px;
