@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Deploying ASP.NET Core Apps on Azure | Mohammed Borhan Uddin Fahim</title>
+  <meta content="Step-by-step guide to deploying .NET applications to Azure App Service with CI/CD pipelines." name="description">
+  <link href="../assets/img/Borhan.png" rel="icon">
+  <link href="../assets/img/Borhan.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <style>
+    .project-hero { padding: 120px 0 60px; position: relative; overflow: hidden; }
+    .project-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%); z-index: -1; }
+    .project-icon-large { width: 100px; height: 100px; background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); }
+    .project-icon-large i { font-size: 40px; color: white; }
+    .back-button { position: fixed; top: 20px; left: 20px; z-index: 1000; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 20px; border-radius: 12px; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
+    .back-button:hover { background: var(--bg-card); transform: translateX(-4px); }
+    .blog-content p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
+    .blog-content h4 { margin-top: 32px; margin-bottom: 14px; }
+    .blog-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; overflow-x: auto; margin-bottom: 20px; }
+    .blog-content code { font-family: 'Space Mono', monospace; font-size: 0.9rem; color: var(--accent); }
+    @media (max-width: 768px) { .project-hero { padding: 100px 0 40px; } .project-icon-large { width: 70px; height: 70px; } .project-icon-large i { font-size: 28px; } .back-button { top: auto; bottom: 20px; left: 20px; } }
+  </style>
+</head>
+<body class="index-page body-dark">
+  <div class="cursor-glow"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+  <a href="../blog.html" class="back-button"><i class="bi bi-arrow-left"></i> <span>Back to Blog</span></a>
+  <main>
+    <section id="post-hero" class="project-hero">
+      <div class="container">
+        <div class="row"><div class="col-12">
+          <div class="row align-items-center" data-aos="fade-up">
+            <div class="col-12 text-center">
+              <div class="project-icon-large"><i class="bi bi-cloud-upload"></i></div>
+              <span class="blog-tag" style="margin-bottom:14px;">DevOps</span>
+              <h1 class="display-5 fw-bold mb-3">Deploying ASP.NET Core Apps on Azure</h1>
+              <div class="blog-meta justify-content-center" style="font-size:0.95rem;"><i class="bi bi-clock"></i> 12 min read · Feb 2026</div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+    <section id="post-content" class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="glass-card p-4 p-md-5 blog-content" data-aos="fade-up">
+              <p>Deploying ASP.NET Core applications to Azure is straightforward once you understand the pipeline. This guide walks through the complete setup from code push to production deployment.</p>
+              <h4>Azure App Service Setup</h4>
+              <p>Create an App Service plan with the appropriate tier. For production SaaS apps, I recommend at least the Standard tier which supports auto-scaling, custom domains, and SSL. Configure the application settings for connection strings and API keys.</p>
+              <pre><code># Azure CLI deployment commands
+az group create --name myapp-rg --location eastus
+az appservice plan create --name myapp-plan --sku S1 --resource-group myapp-rg
+az webapp create --name myapp-api --plan myapp-plan --runtime "DOTNET|8.0" --resource-group myapp-rg</code></pre>
+              <h4>CI/CD with GitHub Actions</h4>
+              <p>I use GitHub Actions for continuous deployment. The workflow runs tests, builds the application, and deploys to Azure on every push to the main branch. This ensures consistent, reliable deployments.</p>
+              <h4>Database Migrations</h4>
+              <p>For database deployments, I use EF Core migrations run as part of the deployment pipeline. The migration script is idempotent and includes rollback capabilities. Always test migrations against a staging environment first.</p>
+              <p>This pipeline has served me well across multiple production deployments with zero downtime.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="post-tags" class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skill-tag-list justify-content-center" style="display:flex;flex-wrap:wrap;gap:10px;">
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-cloud me-2" style="color:#00d4ff;"></i>Azure</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-code-slash me-2" style="color:#00d4ff;"></i>ASP.NET Core</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-github me-2" style="color:#00d4ff;"></i>GitHub Actions</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-diagram-3 me-2" style="color:#00d4ff;"></i>CI/CD</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-database me-2" style="color:#00d4ff;"></i>EF Core Migrations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+    const cursorGlow = document.querySelector('.cursor-glow');
+    window.addEventListener('mousemove', (e) => { cursorGlow.style.left = `${e.clientX}px`; cursorGlow.style.top = `${e.clientY}px`; });
+  </script>
+</body>
+</html>

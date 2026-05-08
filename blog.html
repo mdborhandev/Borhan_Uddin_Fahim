@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Blog | Mohammed Borhan Uddin Fahim</title>
+  <meta content="Articles and tutorials on ASP.NET Core, C#, PostgreSQL, and software engineering." name="description">
+
+  <link href="assets/img/Borhan.png" rel="icon">
+  <link href="assets/img/Borhan.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    .project-hero { padding: 120px 0 60px; position: relative; overflow: hidden; }
+    .project-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%); z-index: -1; }
+    .project-icon-large { width: 120px; height: 120px; background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%); border-radius: 24px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); }
+    .project-icon-large i { font-size: 48px; color: white; }
+    .back-button { position: fixed; top: 20px; left: 20px; z-index: 1000; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 20px; border-radius: 12px; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
+    .back-button:hover { background: var(--bg-card); transform: translateX(-4px); }
+    @media (max-width: 768px) { .project-hero { padding: 100px 0 40px; } .project-icon-large { width: 80px; height: 80px; } .project-icon-large i { font-size: 32px; } .back-button { top: auto; bottom: 20px; left: 20px; } }
+  </style>
+</head>
+
+<body class="index-page body-dark">
+  <div class="cursor-glow"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+
+  <a href="index.html" class="back-button">
+    <i class="bi bi-arrow-left"></i> <span>Back to Home</span>
+  </a>
+
+  <main>
+    <section id="blog-hero" class="project-hero">
+      <div class="container">
+        <div class="row"><div class="col-12">
+          <div class="row align-items-center" data-aos="fade-up">
+            <div class="col-12 text-center">
+              <div class="project-icon-large"><i class="bi bi-pencil-square"></i></div>
+              <h1 class="display-4 fw-bold mb-3">All Articles</h1>
+              <p class="lead text-secondary mb-4">Thoughts on software development, architecture, and engineering best practices</p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="blog-list" class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-file-earmark-code"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">ASP.NET Core</span>
+                <h4>Building Scalable APIs with Clean Architecture</h4>
+                <p>How I structure enterprise-grade ASP.NET Core applications for maintainability and testability.</p>
+                <div class="blog-meta"><i class="bi bi-clock"></i> 8 min read · May 2026</div>
+                <a href="blog/clean-architecture.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-database"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">PostgreSQL</span>
+                <h4>Optimizing Database Performance in SaaS Apps</h4>
+                <p>Tips for query optimization, indexing strategies, and database design in multi-tenant systems.</p>
+                <div class="blog-meta"><i class="bi bi-clock"></i> 6 min read · Apr 2026</div>
+                <a href="blog/postgres-performance.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-shield-check"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">Security</span>
+                <h4>JWT Authentication Best Practices</h4>
+                <p>Implementing secure token-based authentication in ASP.NET Core with refresh tokens and RBAC.</p>
+                <div class="blog-meta"><i class="bi bi-clock"></i> 10 min read · Apr 2026</div>
+                <a href="blog/jwt-authentication.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-diagram-3"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">Architecture</span>
+                <h4>Repository Pattern vs CQRS: When to Use What</h4>
+                <p>A practical comparison of Repository Pattern and CQRS in .NET applications.</p>
+                <div class="blog-meta"><i class="bi bi-clock"></i> 7 min read · Mar 2026</div>
+                <a href="blog/repository-vs-cqrs.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-speedometer2"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">Performance</span>
+                <h4>Entity Framework Core Performance Tuning</h4>
+                <p>Essential tips for optimizing EF Core queries in production applications.</p>
+                <div class="blog-meta"><i class="bi bi-clock"></i> 9 min read · Mar 2026</div>
+                <a href="blog/efcore-performance.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="blog-card">
+              <div class="blog-image"><i class="bi bi-cloud-upload"></i></div>
+              <div class="blog-body">
+                <span class="blog-tag">DevOps</span>
+                <h4>Deploying ASP.NET Core Apps on Azure</h4>
+                <p>Step-by-step guide to deploying .NET applications with CI/CD pipelines.</p>
+                <div class="blog-meta"><i class="bi bi-clock"></i> 12 min read · Feb 2026</div>
+                <a href="blog/azure-deployment.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+    const cursorGlow = document.querySelector('.cursor-glow');
+    window.addEventListener('mousemove', (e) => { cursorGlow.style.left = `${e.clientX}px`; cursorGlow.style.top = `${e.clientY}px`; });
+  </script>
+</body>
+</html>

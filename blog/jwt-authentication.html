@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>JWT Authentication Best Practices | Mohammed Borhan Uddin Fahim</title>
+  <meta content="Implementing secure token-based authentication in ASP.NET Core with refresh tokens, role-based access, and security headers." name="description">
+  <link href="../assets/img/Borhan.png" rel="icon">
+  <link href="../assets/img/Borhan.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <style>
+    .project-hero { padding: 120px 0 60px; position: relative; overflow: hidden; }
+    .project-hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%); z-index: -1; }
+    .project-icon-large { width: 100px; height: 100px; background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4); }
+    .project-icon-large i { font-size: 40px; color: white; }
+    .back-button { position: fixed; top: 20px; left: 20px; z-index: 1000; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 20px; border-radius: 12px; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
+    .back-button:hover { background: var(--bg-card); transform: translateX(-4px); }
+    .blog-content p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
+    .blog-content h4 { margin-top: 32px; margin-bottom: 14px; }
+    .blog-content pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; overflow-x: auto; margin-bottom: 20px; }
+    .blog-content code { font-family: 'Space Mono', monospace; font-size: 0.9rem; color: var(--accent); }
+    @media (max-width: 768px) { .project-hero { padding: 100px 0 40px; } .project-icon-large { width: 70px; height: 70px; } .project-icon-large i { font-size: 28px; } .back-button { top: auto; bottom: 20px; left: 20px; } }
+  </style>
+</head>
+<body class="index-page body-dark">
+  <div class="cursor-glow"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+  <a href="../blog.html" class="back-button"><i class="bi bi-arrow-left"></i> <span>Back to Blog</span></a>
+  <main>
+    <section id="post-hero" class="project-hero">
+      <div class="container">
+        <div class="row"><div class="col-12">
+          <div class="row align-items-center" data-aos="fade-up">
+            <div class="col-12 text-center">
+              <div class="project-icon-large"><i class="bi bi-shield-check"></i></div>
+              <span class="blog-tag" style="margin-bottom:14px;">Security</span>
+              <h1 class="display-5 fw-bold mb-3">JWT Authentication Best Practices</h1>
+              <div class="blog-meta justify-content-center" style="font-size:0.95rem;"><i class="bi bi-clock"></i> 10 min read · Apr 2026</div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+    <section id="post-content" class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="glass-card p-4 p-md-5 blog-content" data-aos="fade-up">
+              <p>JWT (JSON Web Tokens) are the standard for authentication in modern web APIs. However, implementing them securely requires careful consideration of many factors. This article covers the practices I follow in production applications.</p>
+              <h4>Token Structure</h4>
+              <p>I use short-lived access tokens (15 minutes) combined with longer-lived refresh tokens (7 days). Access tokens contain only essential claims: user ID, roles, and permissions. Refresh tokens are stored securely as HTTP-only cookies.</p>
+              <pre><code>{
+  "sub": "user-123",
+  "roles": ["Admin", "Manager"],
+  "permissions": ["read:orders", "write:orders"],
+  "exp": 1680000000,
+  "iat": 1679996400
+}</code></pre>
+              <h4>Security Headers</h4>
+              <p>Every API response includes security headers: Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, and Content-Security-Policy. I also implement rate limiting on authentication endpoints to prevent brute force attacks.</p>
+              <h4>Refresh Token Rotation</h4>
+              <p>Each time a refresh token is used, it is rotated — the old token is invalidated and a new one is issued. This prevents replay attacks and limits the damage if a token is compromised.</p>
+              <p>These practices have kept my production APIs secure across multiple enterprise deployments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="post-tags" class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skill-tag-list justify-content-center" style="display:flex;flex-wrap:wrap;gap:10px;">
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-shield-check me-2" style="color:#00d4ff;"></i>JWT</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-code-slash me-2" style="color:#00d4ff;"></i>ASP.NET Core</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-key me-2" style="color:#00d4ff;"></i>Authentication</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-lock me-2" style="color:#00d4ff;"></i>Security</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-people me-2" style="color:#00d4ff;"></i>Role-Based Access</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+    const cursorGlow = document.querySelector('.cursor-glow');
+    window.addEventListener('mousemove', (e) => { cursorGlow.style.left = `${e.clientX}px`; cursorGlow.style.top = `${e.clientY}px`; });
+  </script>
+</body>
+</html>

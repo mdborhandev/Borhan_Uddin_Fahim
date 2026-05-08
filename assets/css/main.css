@@ -807,20 +807,6 @@ h1, h2, h3, h4 {
   color: var(--accent);
 }
 
-.skill-bar {
-  height: 8px;
-  background: var(--bg-card);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.skill-progress {
-  height: 100%;
-  background: var(--gradient);
-  border-radius: 4px;
-  transition: width 1s ease;
-}
-
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
@@ -1755,6 +1741,15 @@ h1, h2, h3, h4 {
   color: var(--accent);
 }
 
+.blog-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 /* ========================================
    LANGUAGE TOGGLE
    ======================================== */
@@ -1809,6 +1804,169 @@ h1, h2, h3, h4 {
 @keyframes skeleton-shimmer {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
+}
+
+/* ========================================
+   SKILL BARS
+   ======================================== */
+.skill-category-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.skill-category-box:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.skill-category {
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-category i {
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   PROJECT STATS
+   ======================================== */
+.project-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.project-stat-item {
+  text-align: center;
+  padding: 16px 10px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.project-stat-item:hover {
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.project-stat-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.project-stat-num {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+}
+
+.project-stat-item p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 4px 0 0;
+}
+
+/* ========================================
+   PROJECT SEARCH
+   ======================================== */
+.project-search-bar {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.project-search-bar i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.project-search-bar input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.project-search-bar input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.project-search-bar input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   BACK TO TOP CIRCULAR PROGRESS
+   ======================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  background: var(--bg-card);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top i {
+  font-size: 1.2rem;
+  color: var(--accent);
+  position: relative;
+  z-index: 1;
+}
+
+.back-to-top-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.back-to-top-circle .back-to-top-progress {
+  transition: stroke-dashoffset 0.1s linear;
 }
 
 /* ========================================
