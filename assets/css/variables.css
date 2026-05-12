@@ -12,6 +12,8 @@
   --shadow-3d: 0 20px 60px rgba(0, 0, 0, 0.4);
   --font-body: 'Outfit', sans-serif;
   --font-mono: 'Space Mono', monospace;
+  --bs-body-color: var(--text-primary);
+  --bs-body-bg: var(--bg-primary);
 }
 
 body.light-theme {
@@ -26,4 +28,6 @@ body.light-theme {
   --gradient: linear-gradient(135deg, #246bff 0%, #6a5cff 100%);
   --glass: rgba(255, 255, 255, 0.7);
   --shadow-3d: 0 20px 45px rgba(36, 107, 255, 0.15);
+  --bs-body-color: var(--text-primary);
+  --bs-body-bg: var(--bg-primary);
 }
