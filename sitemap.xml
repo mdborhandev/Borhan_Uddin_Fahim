@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mdborhandev.github.io/</loc><priority>1.0</priority></url>
+  <url><loc>https://mdborhandev.github.io/blog.html</loc><priority>0.8</priority></url>
+  <url><loc>https://mdborhandev.github.io/erp.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mdborhandev.github.io/atrai.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mdborhandev.github.io/halda.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mdborhandev.github.io/okr.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mdborhandev.github.io/smartslead.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mdborhandev.github.io/gym.html</loc><priority>0.7</priority></url>
+  <url><loc>https://mdborhandev.github.io/blog/clean-architecture.html</loc><priority>0.6</priority></url>
+  <url><loc>https://mdborhandev.github.io/blog/postgres-performance.html</loc><priority>0.6</priority></url>
+  <url><loc>https://mdborhandev.github.io/blog/jwt-authentication.html</loc><priority>0.6</priority></url>
+  <url><loc>https://mdborhandev.github.io/blog/repository-vs-cqrs.html</loc><priority>0.6</priority></url>
+  <url><loc>https://mdborhandev.github.io/blog/efcore-performance.html</loc><priority>0.6</priority></url>
+  <url><loc>https://mdborhandev.github.io/blog/azure-deployment.html</loc><priority>0.6</priority></url>
+</urlset>

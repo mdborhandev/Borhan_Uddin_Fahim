@@ -402,6 +402,13 @@
       cursorGlow.style.top = `${e.clientY}px`;
     });
   </script>
+<script>
+document.body.style.opacity='0';document.body.style.transition='opacity 0.4s ease';
+document.addEventListener('DOMContentLoaded',()=>{requestAnimationFrame(()=>{document.body.style.opacity='1'})});
+document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="http"])').forEach(a=>{
+a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h&&!h.startsWith('#')&&!h.startsWith('http')&&!h.startsWith('javascript')&&!h.startsWith('mailto')){e.preventDefault();document.body.style.opacity='0';setTimeout(()=>{window.location.href=h},300)}})
+});
+</script>
 </body>
 
 </html>

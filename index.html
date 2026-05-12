@@ -608,37 +608,13 @@
         <div class="row g-4">
           <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
             <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-file-earmark-code"></i></div>
+              <div class="blog-image"><i class="bi bi-robot"></i></div>
               <div class="blog-body">
-                <span class="blog-tag">ASP.NET Core</span>
-                <h4>Building Scalable APIs with Clean Architecture</h4>
-                <p>How I structure enterprise-grade ASP.NET Core applications for maintainability and testability.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 8 min read · May 2026</div>
-                <a href="blog/clean-architecture.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-database"></i></div>
-              <div class="blog-body">
-                <span class="blog-tag">PostgreSQL</span>
-                <h4>Optimizing Database Performance in SaaS Apps</h4>
-                <p>Tips for query optimization, indexing strategies, and database design in multi-tenant systems.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 6 min read · Apr 2026</div>
-                <a href="blog/postgres-performance.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-shield-check"></i></div>
-              <div class="blog-body">
-                <span class="blog-tag">Security</span>
-                <h4>JWT Authentication Best Practices</h4>
-                <p>Implementing secure token-based authentication in ASP.NET Core with refresh tokens and RBAC.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 10 min read · Apr 2026</div>
-                <a href="blog/jwt-authentication.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                <span class="blog-tag">AI & Future of Programming</span>
+                <h4>The Future of Programming: AI Will Write the Code, Humans Will Guide It</h4>
+                <p>Exploring how AI is transforming software development — from coding assistants to prompt engineering, token efficiency, and the new role of developers in the AI era.</p>
+                <div class="blog-meta"><i class="bi bi-clock"></i> 10 min read · May 2026</div>
+                <a href="blog/ai-future-programming.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -1181,21 +1157,20 @@
       body.scrollTop = body.scrollHeight;
     }
 
-    // Page transition for project links
-    document.querySelectorAll('.project-card-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.3s ease';
-        setTimeout(() => { window.location.href = href; }, 300);
-      });
-    });
-
-    // Page load fade-in
+    // Page transition
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.4s ease';
-    window.addEventListener('load', () => { document.body.style.opacity = '1'; });
+    document.addEventListener('DOMContentLoaded', () => { requestAnimationFrame(() => { document.body.style.opacity = '1'; }); });
+    document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="http"])').forEach(a => {
+      a.addEventListener('click', e => {
+        const h = a.getAttribute('href');
+        if (h && !h.startsWith('#') && !h.startsWith('http') && !h.startsWith('javascript') && !h.startsWith('mailto')) {
+          e.preventDefault();
+          document.body.style.opacity = '0';
+          setTimeout(() => { window.location.href = h; }, 300);
+        }
+      });
+    });
 
     // GLightbox initialization
     if (typeof GLightbox !== 'undefined') {

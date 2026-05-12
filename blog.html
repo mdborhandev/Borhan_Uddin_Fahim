@@ -24,6 +24,13 @@
     .project-icon-large i { font-size: 48px; color: white; }
     .back-button { position: fixed; top: 20px; left: 20px; z-index: 1000; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 20px; border-radius: 12px; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
     .back-button:hover { background: var(--bg-card); transform: translateX(-4px); }
+    .blog-search { max-width: 500px; margin-left: auto; margin-right: auto; }
+    .search-wrapper { position: relative; }
+    .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); font-size: 1.1rem; z-index: 5; }
+    .search-input { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); padding-left: 44px; border-radius: 12px; height: 50px; font-size: 0.95rem; }
+    .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1); background: var(--bg-card); color: var(--text-primary); }
+    .search-input::placeholder { color: var(--text-secondary); opacity: 0.7; }
+    .blog-card.hidden { display: none; }
     @media (max-width: 768px) { .project-hero { padding: 100px 0 40px; } .project-icon-large { width: 80px; height: 80px; } .project-icon-large i { font-size: 32px; } .back-button { top: auto; bottom: 20px; left: 20px; } }
   </style>
 </head>
@@ -54,76 +61,22 @@
 
     <section id="blog-list" class="section">
       <div class="container">
-        <div class="row g-4">
+        <div class="blog-search mb-4" data-aos="fade-up">
+          <div class="search-wrapper">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="blogSearch" class="form-control search-input" placeholder="Search articles by title, tag or keyword..." oninput="filterBlog()">
+          </div>
+        </div>
+        <div class="row g-4" id="blogGrid">
           <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
             <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-file-earmark-code"></i></div>
+              <div class="blog-image"><i class="bi bi-robot"></i></div>
               <div class="blog-body">
-                <span class="blog-tag">ASP.NET Core</span>
-                <h4>Building Scalable APIs with Clean Architecture</h4>
-                <p>How I structure enterprise-grade ASP.NET Core applications for maintainability and testability.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 8 min read · May 2026</div>
-                <a href="blog/clean-architecture.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-database"></i></div>
-              <div class="blog-body">
-                <span class="blog-tag">PostgreSQL</span>
-                <h4>Optimizing Database Performance in SaaS Apps</h4>
-                <p>Tips for query optimization, indexing strategies, and database design in multi-tenant systems.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 6 min read · Apr 2026</div>
-                <a href="blog/postgres-performance.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-shield-check"></i></div>
-              <div class="blog-body">
-                <span class="blog-tag">Security</span>
-                <h4>JWT Authentication Best Practices</h4>
-                <p>Implementing secure token-based authentication in ASP.NET Core with refresh tokens and RBAC.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 10 min read · Apr 2026</div>
-                <a href="blog/jwt-authentication.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
-            <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-diagram-3"></i></div>
-              <div class="blog-body">
-                <span class="blog-tag">Architecture</span>
-                <h4>Repository Pattern vs CQRS: When to Use What</h4>
-                <p>A practical comparison of Repository Pattern and CQRS in .NET applications.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 7 min read · Mar 2026</div>
-                <a href="blog/repository-vs-cqrs.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-speedometer2"></i></div>
-              <div class="blog-body">
-                <span class="blog-tag">Performance</span>
-                <h4>Entity Framework Core Performance Tuning</h4>
-                <p>Essential tips for optimizing EF Core queries in production applications.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 9 min read · Mar 2026</div>
-                <a href="blog/efcore-performance.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="blog-card">
-              <div class="blog-image"><i class="bi bi-cloud-upload"></i></div>
-              <div class="blog-body">
-                <span class="blog-tag">DevOps</span>
-                <h4>Deploying ASP.NET Core Apps on Azure</h4>
-                <p>Step-by-step guide to deploying .NET applications with CI/CD pipelines.</p>
-                <div class="blog-meta"><i class="bi bi-clock"></i> 12 min read · Feb 2026</div>
-                <a href="blog/azure-deployment.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                <span class="blog-tag">AI & Future of Programming</span>
+                <h4>The Future of Programming: AI Will Write the Code, Humans Will Guide It</h4>
+                <p>Exploring how AI is transforming software development — from coding assistants to prompt engineering, token efficiency, and the new role of developers in the AI era.</p>
+                <div class="blog-meta"><i class="bi bi-clock"></i> 10 min read · May 2026</div>
+                <a href="blog/ai-future-programming.html" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -138,6 +91,29 @@
     AOS.init({ duration: 600, easing: 'ease-out', once: true });
     const cursorGlow = document.querySelector('.cursor-glow');
     window.addEventListener('mousemove', (e) => { cursorGlow.style.left = `${e.clientX}px`; cursorGlow.style.top = `${e.clientY}px`; });
+
+    function filterBlog() {
+      const q = document.getElementById('blogSearch').value.toLowerCase();
+      document.querySelectorAll('#blogGrid > div').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.classList.toggle('hidden', !text.includes(q));
+      });
+    }
+
+    // Page transition
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.4s ease';
+    document.addEventListener('DOMContentLoaded', () => { requestAnimationFrame(() => { document.body.style.opacity = '1'; }); });
+    document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="http"])').forEach(a => {
+      a.addEventListener('click', e => {
+        const h = a.getAttribute('href');
+        if (h && !h.startsWith('#') && !h.startsWith('http') && !h.startsWith('javascript')) {
+          e.preventDefault();
+          document.body.style.opacity = '0';
+          setTimeout(() => { window.location.href = h; }, 300);
+        }
+      });
+    });
   </script>
 </body>
 </html>

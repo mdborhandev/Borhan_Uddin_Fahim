@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>404 - Page Not Found | Mohammed Borhan Uddin Fahim</title>
+  <meta content="Page not found" name="description">
+  <link href="assets/img/Borhan.png" rel="icon">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    .error-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
+    .error-code { font-size: 10rem; font-weight: 800; background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+    .error-title { font-size: 1.8rem; margin-bottom: 12px; }
+    .error-desc { color: var(--text-secondary); margin-bottom: 32px; font-size: 1.1rem; }
+    .error-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 50px; background: var(--gradient); color: #fff; text-decoration: none; font-weight: 500; transition: all 0.3s ease; }
+    .error-btn:hover { transform: scale(1.05); box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3); color: #fff; }
+    .error-orb { position: absolute; width: 300px; height: 300px; border-radius: 50%; filter: blur(120px); opacity: 0.15; pointer-events: none; }
+    .error-orb.one { top: -100px; left: -100px; background: #00d4ff; }
+    .error-orb.two { bottom: -100px; right: -100px; background: #7b2cbf; }
+    @media (max-width: 768px) { .error-code { font-size: 6rem; } }
+  </style>
+</head>
+<body class="body-dark">
+  <div class="error-orb one"></div>
+  <div class="error-orb two"></div>
+  <div class="error-page">
+    <div class="container">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-desc">The page you're looking for doesn't exist or has been moved.</p>
+      <a href="index.html" class="error-btn"><i class="bi bi-house"></i> Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

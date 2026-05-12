@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>The Future of Programming: AI Will Write the Code, Humans Will Guide It | Mohammed Borhan Uddin Fahim</title>
+  <meta content="Exploring how AI is transforming software development — from coding assistants to prompt engineering, token efficiency, and the new role of developers." name="description">
+
+  <link href="../assets/img/Borhan.png" rel="icon">
+  <link href="../assets/img/Borhan.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <style>
+    .project-hero { padding: 120px 0 60px; position: relative; overflow: hidden; }
+    .project-hero::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
+      z-index: -1;
+    }
+    .project-icon-large {
+      width: 100px; height: 100px;
+      background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
+      border-radius: 20px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    .project-icon-large i { font-size: 40px; color: white; }
+    .back-button {
+      position: fixed; top: 20px; left: 20px; z-index: 1000;
+      background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 20px;
+      border-radius: 12px; color: var(--text-primary); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;
+    }
+    .back-button:hover { background: var(--bg-card); transform: translateX(-4px); }
+    .blog-content p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
+    .blog-content h2 { margin-top: 40px; margin-bottom: 14px; font-size: 1.6rem; }
+    .blog-content h3 { margin-top: 32px; margin-bottom: 12px; font-size: 1.25rem; }
+    .blog-content h4 { margin-top: 28px; margin-bottom: 10px; font-size: 1.1rem; }
+    .blog-content ul { color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; padding-left: 24px; }
+    .blog-content li { margin-bottom: 6px; }
+    .blog-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 12px 20px;
+      margin: 20px 0;
+      background: var(--bg-card);
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+    }
+    .blog-content blockquote p { margin-bottom: 0; }
+    .blog-content .prompt-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .blog-content .prompt-box.bad { border-left: 4px solid #ff6b6b; }
+    .blog-content .prompt-box.good { border-left: 4px solid #51cf66; }
+    .blog-content .prompt-label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .blog-content .prompt-label.bad-label { color: #ff6b6b; }
+    .blog-content .prompt-label.good-label { color: #51cf66; }
+    .blog-content code { font-family: 'Space Mono', monospace; font-size: 0.9rem; color: var(--accent); }
+    .blog-content hr { border-color: var(--border); margin: 32px 0; }
+    .skill-tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill-tag-list .tech-pill { background: var(--bg-card); border: 1px solid var(--border); padding: 8px 16px; border-radius: 8px; font-size: 14px; color: var(--text-primary); }
+    @media (max-width: 768px) {
+      .project-hero { padding: 100px 0 40px; }
+      .project-icon-large { width: 70px; height: 70px; }
+      .project-icon-large i { font-size: 28px; }
+      .back-button { top: auto; bottom: 20px; left: 20px; }
+    }
+  </style>
+</head>
+
+<body class="index-page body-dark">
+  <div class="cursor-glow"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+
+  <a href="../blog.html" class="back-button">
+    <i class="bi bi-arrow-left"></i> <span>Back to Blog</span>
+  </a>
+
+  <main>
+    <section id="post-hero" class="project-hero">
+      <div class="container">
+        <div class="row"><div class="col-12">
+          <div class="row align-items-center" data-aos="fade-up">
+            <div class="col-12 text-center">
+              <div class="project-icon-large"><i class="bi bi-robot"></i></div>
+              <span class="blog-tag" style="margin-bottom:14px;">AI & Future of Programming</span>
+              <h1 class="display-5 fw-bold mb-3">The Future of Programming: AI Will Write the Code, Humans Will Guide It</h1>
+              <div class="blog-meta justify-content-center" style="font-size:0.95rem;">
+                <i class="bi bi-clock"></i> 10 min read · May 2026
+              </div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="post-content" class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div class="glass-card p-4 p-md-5 blog-content" data-aos="fade-up">
+
+              <p>There was a time when programming meant memorizing syntax, writing thousands of lines of code, and spending hours fixing small bugs. But the modern technology era is changing that reality very quickly. We are entering a new generation where people may no longer need to manually write every line of code — Artificial Intelligence (AI) will do most of it.</p>
+
+              <p>Today, AI is no longer just a coding assistant. It can generate complete applications, fix bugs, design databases, create APIs, optimize performance, and even build software architecture. Humans will increasingly focus on planning, organizing, and guiding AI instead of manually coding everything themselves.</p>
+
+              <hr>
+
+              <h2>The New Type of Developer</h2>
+
+              <p>In the past, a great programmer was someone who could write code faster and more accurately than others. But in the AI era, the definition of skill is changing.</p>
+
+              <p>The future developer will not only be a coder. They will become:</p>
+
+              <ul>
+                <li>Problem analyzers</li>
+                <li>AI guides</li>
+                <li>Prompt engineers</li>
+                <li>Workflow designers</li>
+                <li>System planners</li>
+                <li>Automation architects</li>
+              </ul>
+
+              <p>The biggest skill will no longer be:</p>
+
+              <blockquote>
+                <p>“Who can write more code?”</p>
+              </blockquote>
+
+              <p>Instead, it will become:</p>
+
+              <blockquote>
+                <p>“Who can get the best result from AI efficiently?”</p>
+              </blockquote>
+
+              <hr>
+
+              <h2>Prompt Engineering: The New Core Skill</h2>
+
+              <p>AI performs best when instructions are clear, structured, and specific. This skill is called <strong>Prompt Engineering</strong>.</p>
+
+              <p>A weak prompt creates weak output.<br>A smart prompt creates accurate, professional, and optimized results while using fewer tokens.</p>
+
+              <h3>❌ Bad Prompt</h3>
+
+              <div class="prompt-box bad">
+                <div class="prompt-label bad-label">Bad Prompt</div>
+                <p><code>“Create a gym management software.”</code></p>
+              </div>
+
+              <p>This prompt is too vague. AI does not know:</p>
+
+              <ul>
+                <li>Is it web or mobile?</li>
+                <li>Who are the users?</li>
+                <li>What features are required?</li>
+                <li>Which technologies should be used?</li>
+                <li>What should the UI look like?</li>
+              </ul>
+
+              <p>Because of this, the result will often be generic or incomplete.</p>
+
+              <h3>✅ Better Prompt</h3>
+
+              <div class="prompt-box good">
+                <div class="prompt-label good-label">Better Prompt</div>
+                <p><code>“Create a modern gym management web application for gym owners and members. Include features such as member registration, monthly subscriptions, trainer management, attendance tracking, payment history, workout plans, and an admin dashboard. Use ASP.NET Core Web API for the backend and React for the frontend. Use PostgreSQL as the database and JWT authentication. The UI should be modern, responsive, and mobile-friendly. Organize the project structure properly and suggest additional useful features if necessary.”</code></p>
+              </div>
+
+              <p>This prompt gives AI:</p>
+
+              <ul>
+                <li>Clear objectives</li>
+                <li>Required features</li>
+                <li>Technology stack</li>
+                <li>User roles</li>
+                <li>Design expectations</li>
+                <li>Flexibility for improvement</li>
+              </ul>
+
+              <p>As a result, AI can produce a much more accurate and professional output using fewer unnecessary tokens.</p>
+
+              <hr>
+
+              <h2>"Less Tokens, Better Results" Will Become a Real Skill</h2>
+
+              <p>In the AI era, a new kind of efficiency is becoming important: <strong>Token Efficiency</strong>.</p>
+
+              <p>Future developers will be judged not only by coding ability, but also by:</p>
+
+              <ul>
+                <li>How clearly they communicate with AI</li>
+                <li>How well they structure prompts</li>
+                <li>How little unnecessary context they use</li>
+                <li>How effectively they guide AI workflows</li>
+                <li>How optimized their AI interaction becomes</li>
+              </ul>
+
+              <p>The best AI developers may be the ones who can:</p>
+
+              <blockquote>
+                <p>Get maximum output with minimum tokens.</p>
+              </blockquote>
+
+              <hr>
+
+              <h2>Coding Is Evolving, Not Disappearing</h2>
+
+              <p>This does not mean programming knowledge will become useless. Logic, architecture, problem solving, and system thinking will still matter deeply. AI can generate code, but humans still define the vision, strategy, and decisions.</p>
+
+              <p>Just like calculators changed mathematics without removing math itself, AI will change programming without eliminating developers.</p>
+
+              <p>The role of developers is evolving from:</p>
+
+              <blockquote>
+                <p>“Writing every line manually”</p>
+              </blockquote>
+
+              <p>to:</p>
+
+              <blockquote>
+                <p>“Designing systems and guiding AI intelligently.”</p>
+              </blockquote>
+
+              <hr>
+
+              <h2>The Future of Software Development</h2>
+
+              <p>The future of software engineering may look very different:</p>
+
+              <ul>
+                <li>AI writes most repetitive code</li>
+                <li>Humans focus on ideas and architecture</li>
+                <li>Prompt engineering becomes a major technical skill</li>
+                <li>Development becomes faster and more automated</li>
+                <li>Small teams build products that once required huge companies</li>
+                <li>Speed of thinking becomes more important than typing speed</li>
+              </ul>
+
+              <p>The modern developer will likely spend more time:</p>
+
+              <ul>
+                <li>Planning</li>
+                <li>Thinking</li>
+                <li>Designing workflows</li>
+                <li>Reviewing AI output</li>
+                <li>Optimizing prompts</li>
+                <li>Managing automation</li>
+              </ul>
+
+              <p>than manually writing boilerplate code.</p>
+
+              <hr>
+
+              <h2>Conclusion</h2>
+
+              <p>We are entering a new era where humans and AI work together to build software. The strongest developers of the future may not be the ones who write the most code, but the ones who can best guide AI to produce the best results.</p>
+
+              <p>Programming is no longer only about coding.</p>
+
+              <p>It is becoming:</p>
+
+              <blockquote>
+                <p><strong>Thinking + Planning + Prompting + Guiding AI Efficiently</strong></p>
+              </blockquote>
+
+              <p>And one of the most valuable skills in the future may simply be:</p>
+
+              <blockquote>
+                <p><strong>"Less Tokens, Better Prompt, Maximum Outcome."</strong></p>
+              </blockquote>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="post-tags" class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skill-tag-list justify-content-center" style="display:flex;flex-wrap:wrap;gap:10px;">
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-robot me-2" style="color:#00d4ff;"></i>Artificial Intelligence</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-chat-dots me-2" style="color:#00d4ff;"></i>Prompt Engineering</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-lightning me-2" style="color:#00d4ff;"></i>Token Efficiency</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-diagram-3 me-2" style="color:#00d4ff;"></i>System Architecture</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-gear me-2" style="color:#00d4ff;"></i>Workflow Automation</span>
+              <span class="tech-pill" style="border-color:#00d4ff30;"><i class="bi bi-people me-2" style="color:#00d4ff;"></i>AI Collaboration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
+    const cursorGlow = document.querySelector('.cursor-glow');
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    });
+  </script>
+<script>
+document.body.style.opacity='0';document.body.style.transition='opacity 0.4s ease';
+document.addEventListener('DOMContentLoaded',()=>{requestAnimationFrame(()=>{document.body.style.opacity='1'})});
+document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="http"])').forEach(a=>{
+a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h&&!h.startsWith('#')&&!h.startsWith('http')&&!h.startsWith('javascript')&&!h.startsWith('mailto')){e.preventDefault();document.body.style.opacity='0';setTimeout(()=>{window.location.href=h},300)}})
+});
+</script>
+</body>
+</html>
