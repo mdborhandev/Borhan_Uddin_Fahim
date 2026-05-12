@@ -37,7 +37,11 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/utilities.css" rel="stylesheet">
+  <link href="assets/css/components.css" rel="stylesheet">
+  <link href="assets/css/animations.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 </head>
 
@@ -109,15 +113,13 @@
       <div class="container">
         <div class="row hero-content-row align-items-center justify-content-center text-center">
           <div class="col-12 col-md-10 col-lg-8">
-            <h1 class="hero-name animate-fade-in-up" data-en="Mohammed Borhan Uddin Fahim" data-bn="মোহাম্মদ বোরহান উদ্দিন ফাহিম">Mohammed Borhan Uddin Fahim</h1>
+            <h1 class="hero-name text-gradient animate-fade-in-up" data-en="Mohammed Borhan Uddin Fahim" data-bn="মোহাম্মদ বোরহান উদ্দিন ফাহিম">Mohammed Borhan Uddin Fahim</h1>
             <p class="hero-title animate-fade-in-up delay-200">
-              <span class="typed-tagline"> </span><span class="cursor">|</span>
+              <span class="typed-tagline text-accent"> </span><span class="cursor">|</span>
             </p>
             <p class="hero-tagline animate-fade-in-up delay-400">
-              <span class="typed-sub"> </span><span class="cursor">|</span>
+              <span class="typed-sub text-accent"> </span><span class="cursor">|</span>
             </p>
-            
-            
             <div class="hero-actions animate-fade-in-up delay-600">
               <div class="social-links">
                 <a href="https://www.linkedin.com/in/borhan-uddin-fahim/" target="_blank"><i class="bi bi-linkedin"></i></a>
@@ -128,24 +130,24 @@
                 <a href="assets/img/Borhan-Fahim-Resume.pdf" download><i class="bi bi-download"></i></a>
               </div>
               <div class="hero-cta-group">
-                <a href="#about" class="btn-explore">Explore More</a>
+                <a href="#about" class="btn btn-primary">Explore More</a>
                 <button type="button" id="themeToggle" class="btn-glass"><i class="bi bi-moon-stars"></i> Toggle Theme</button>
                 <span class="availability-badge">
-                  <span class="pulse"></span>
+                  <span class="pulse-dot"></span>
                   <span>Open to Work</span>
                 </span>
               </div>
             </div>
             <div class="hero-tech-badge animate-fade-in-up delay-800">
-              <span class="badge-item">API</span>
-              <span class="badge-item">SaaS</span>
-              <span class="badge-item">Cloud</span>
+              <span class="tag">API</span>
+              <span class="tag">SaaS</span>
+              <span class="tag">Cloud</span>
             </div>
             <div class="hero-tech-stack animate-fade-in-up delay-800">
-              <span>ASP.NET Core</span>
-              <span>Web API</span>
-              <span>PostgreSQL</span>
-              <span>Clean Architecture</span>
+              <span class="tag">ASP.NET Core</span>
+              <span class="tag">Web API</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Clean Architecture</span>
             </div>
           </div>
         </div>
@@ -162,17 +164,15 @@
           <h2>About Me</h2>
           <p>Backend-focused Software Engineer with production-level SaaS experience</p>
         </div>
-        
         <div class="row align-items-center g-4">
           <div class="col-12 col-md-4 text-center">
             <div class="about-img-wrapper">
-              <div class="skeleton" style="width:200px;height:200px;border-radius:50%;margin:0 auto;"><a href="assets/img/Borhan.png" class="glightbox"><img src="assets/img/Borhan.png" alt="Borhan" class="about-img" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></a></div>
+              <div class="skeleton" style="width:200px;height:200px;border-radius:50%;margin:0 auto;"><a href="assets/img/Borhan.png" class="glightbox"><img src="assets/img/Borhan.png" alt="Borhan" class="about-img" loading="lazy"></a></div>
             </div>
           </div>
           <div class="col-12 col-md-8">
             <h3>Software Engineer | ASP.NET Core Developer</h3>
             <p class="lead">Building scalable enterprise solutions with clean architecture, secure APIs, and optimized database performance.</p>
-            
             <div class="row g-3 about-info">
               <div class="col-6 col-md-6">
                 <div class="info-item"><i class="bi bi-geo-alt"></i> <span>Chattogram, Bangladesh</span></div>
@@ -191,7 +191,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section">
+    <section id="services" class="section section-dark">
       <div class="container">
         <div class="section-header">
           <h2>Services</h2>
@@ -260,7 +260,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="section">
+    <section id="testimonials" class="section section-dark">
       <div class="container">
         <div class="section-header">
           <h2>Testimonials</h2>
@@ -414,17 +414,15 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="section">
+    <section id="resume" class="section section-dark">
       <div class="container">
         <div class="section-header">
           <h2>Resume</h2>
           <p>Professional experience and education</p>
         </div>
-        
         <div class="row g-4">
           <div class="col-12 col-md-6">
             <h3 class="resume-title">Experience</h3>
-            
             <div class="resume-card">
               <span class="resume-date">March 2024 - Present</span>
               <h4>Junior Programmer</h4>
@@ -436,7 +434,6 @@
                 <li>Optimized API response by 30%</li>
               </ul>
             </div>
-            
             <div class="resume-card">
               <span class="resume-date">Dec 2023 - Feb 2024</span>
               <h4>Guest Trainer</h4>
@@ -447,17 +444,14 @@
               </ul>
             </div>
           </div>
-          
           <div class="col-12 col-md-6">
             <h3 class="resume-title">Education</h3>
-            
             <div class="resume-card">
               <span class="resume-date">2020 - 2024</span>
               <h4>Diploma in Computer Science</h4>
               <p class="company">A K Khan UCEP Polytechnic Institute</p>
               <p>GPA: 3.82/4.0</p>
             </div>
-            
             <div class="resume-card">
               <span class="resume-date">2020</span>
               <h4>Secondary School Certificate</h4>
@@ -491,7 +485,7 @@
             <a href="erp.html" class="project-card-link">
               <div class="project-card">
                 <div class="project-header">
-                  <div class="project-icon"><i class="bi bi-building"></i></div>
+                  <div class="icon-box"><i class="bi bi-building"></i></div>
                   <h4>ERP - Enterprise Resource Planning</h4>
                 </div>
                 <p>Comprehensive enterprise ERP solution for business process management including inventory, supply chain, HR, finance, and operational workflows.</p>
@@ -506,7 +500,7 @@
             <a href="atrai.html" class="project-card-link">
               <div class="project-card">
                 <div class="project-header">
-                  <div class="project-icon"><i class="bi bi-calculator"></i></div>
+                  <div class="icon-box"><i class="bi bi-calculator"></i></div>
                   <h4>Atrai - Accounting Software</h4>
                 </div>
                 <p>Full-featured accounting software for financial management, invoicing, expense tracking, ledger management, and financial reporting.</p>
@@ -521,7 +515,7 @@
             <a href="halda.html" class="project-card-link">
               <div class="project-card">
                 <div class="project-header">
-                  <div class="project-icon"><i class="bi bi-people"></i></div>
+                  <div class="icon-box"><i class="bi bi-people"></i></div>
                   <h4>Halda - SaaS HRM Platform</h4>
                 </div>
                 <p>Employee management, payroll, attendance & performance modules with RBAC.</p>
@@ -536,7 +530,7 @@
             <a href="okr.html" class="project-card-link">
               <div class="project-card">
                 <div class="project-header">
-                  <div class="project-icon"><i class="bi bi-bar-chart"></i></div>
+                  <div class="icon-box"><i class="bi bi-bar-chart"></i></div>
                   <h4>OKR - Goal & Task Management</h4>
                 </div>
                 <p>OKR-based team goal tracking with performance dashboards.</p>
@@ -551,7 +545,7 @@
             <a href="smartslead.html" class="project-card-link">
               <div class="project-card">
                 <div class="project-header">
-                  <div class="project-icon"><i class="bi bi-lightbulb"></i></div>
+                  <div class="icon-box"><i class="bi bi-lightbulb"></i></div>
                   <h4>SmartSLead - Lead Management</h4>
                 </div>
                 <p>Comprehensive lead management for sales pipeline.</p>
@@ -566,7 +560,7 @@
             <a href="gym.html" class="project-card-link">
               <div class="project-card">
                 <div class="project-header">
-                  <div class="project-icon"><i class="bi bi-heart-pulse"></i></div>
+                  <div class="icon-box"><i class="bi bi-heart-pulse"></i></div>
                   <h4>Gym Management System</h4>
                 </div>
                 <p>Comprehensive gym management system for member tracking, attendance, membership plans, and workout scheduling.</p>
@@ -582,7 +576,7 @@
     </section>
 
     <!-- GitHub Activity Section -->
-    <section id="github" class="section">
+    <section id="github" class="section section-dark">
       <div class="container">
         <div class="section-header">
           <h2>GitHub Activity</h2>
@@ -590,7 +584,7 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-12 col-lg-8">
-            <div class="glass-card p-4" id="github-feed">
+            <div class="card-glass card-p-lg" id="github-feed">
               <p style="color:var(--text-secondary);text-align:center;">Loading activity...</p>
             </div>
           </div>
@@ -620,19 +614,18 @@
           </div>
         </div>
         <div class="text-center mt-4">
-          <a href="blog.html" class="btn-explore">View All Articles <i class="bi bi-arrow-right"></i></a>
+          <a href="blog.html" class="btn btn-primary">View All Articles <i class="bi bi-arrow-right"></i></a>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section section-dark">
       <div class="container">
         <div class="section-header">
           <h2>Contact</h2>
           <p>Get in touch</p>
         </div>
-        
         <div class="row g-4">
           <div class="col-12 col-md-5">
             <div class="contact-info">
@@ -682,7 +675,7 @@
                   <textarea class="form-control" rows="5" placeholder="Message" name="message" required></textarea>
                 </div>
                 <div class="col-12 text-center">
-                  <button type="submit" class="btn-submit">Send Message</button>
+                  <button type="submit" class="btn btn-primary">Send Message</button>
                 </div>
               </div>
             </form>
@@ -705,7 +698,7 @@
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="section">
+    <section id="certificates" class="section section-dark">
       <div class="container">
         <div class="section-header">
           <h2>Certificates</h2>
@@ -766,418 +759,16 @@
     </button>
   </main>
 
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
-      }
-    </script>
-   <script>
-     // Mobile Menu Toggle
-      function toggleMenu() {
-        document.getElementById('header').classList.toggle('active');
-        document.querySelector('.header-toggle').classList.toggle('active');
-      }
-      
-      function closeMenu() {
-        document.getElementById('header').classList.remove('active');
-        document.querySelector('.header-toggle').classList.remove('active');
-      }
-
-    // Initialize AOS
-    AOS.init({
-      duration: 600,
-      easing: 'ease-out',
-      once: true
-    });
-
-    function typeText(selector, items) {
-      const el = document.querySelector(selector);
-      if (!el) return;
-      let i = 0;
-      let currentText = '';
-      let isDeleting = false;
-      function type() {
-        const fullText = items[i];
-        if (isDeleting) {
-          currentText = fullText.substring(0, currentText.length - 1);
-        } else {
-          currentText = fullText.substring(0, currentText.length + 1);
-        }
-        el.textContent = currentText;
-        let speed = isDeleting ? 30 : 60;
-        if (!isDeleting && currentText === fullText) {
-          speed = 2000;
-          isDeleting = true;
-        } else if (isDeleting && currentText === '') {
-          isDeleting = false;
-          i = (i + 1) % items.length;
-          speed = 300;
-        }
-        setTimeout(type, speed);
-      }
-      type();
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
     }
-
-    typeText('.typed-tagline', ['Software Engineer', 'ASP.NET Core Developer', 'Backend Developer']);
-    typeText('.typed-sub', ['Building enterprise solutions with clean architecture', 'Backend Developer | ASP.NET Core Specialist', 'Software Engineer | SaaS Architect']);
-
-    // Stats Counter Animation (also for project stats)
-    const stats = document.querySelectorAll('.stat-number, .project-stat-num');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const count = parseInt(el.dataset.count);
-          let current = 0;
-          const increment = count / 50;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= count) {
-              el.textContent = count + '+';
-              clearInterval(timer);
-            } else {
-              el.textContent = Math.floor(current);
-            }
-          }, 30);
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    stats.forEach(stat => observer.observe(stat));
-
-    // Active Nav on Scroll
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.floating-nav a');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 200) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    (function() {
-      emailjs.init("UfmpMSg2KlcJjyIX0");
-    })();
-
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const btn = this.querySelector('.btn-submit');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      emailjs.sendForm('service_vxkwckv', 'template_txkht7q', this)
-        .then(function() {
-          alert('Message sent successfully!');
-          document.querySelector('.contact-form').reset();
-          btn.textContent = 'Send Message';
-          btn.disabled = false;
-        }, function(error) {
-          alert('Failed to send message. Please try again.');
-          btn.textContent = 'Send Message';
-          btn.disabled = false;
-        });
-    });
-
-    // 3D tilt interaction on cards
-    const tiltItems = document.querySelectorAll('.project-card, .resume-card, .stat-item');
-    tiltItems.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const rotateY = ((x / rect.width) - 0.5) * 10;
-        const rotateX = ((y / rect.height) - 0.5) * -10;
-        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-
-    // Theme toggle (new feature)
-    const themeToggle = document.getElementById('themeToggle');
-    const preferredTheme = localStorage.getItem('site-theme');
-    if (preferredTheme === 'light') {
-      document.body.classList.add('light-theme');
-      themeToggle.innerHTML = '<i class="bi bi-sun"></i> Toggle Theme';
-    }
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-theme');
-        if (document.body.classList.contains('light-theme')) {
-          themeToggle.innerHTML = '<i class="bi bi-sun"></i> Toggle Theme';
-          localStorage.setItem('site-theme', 'light');
-        } else {
-          themeToggle.innerHTML = '<i class="bi bi-moon-stars"></i> Toggle Theme';
-          localStorage.setItem('site-theme', 'dark');
-        }
-      });
-    }
-
-    // Projects filter (new feature)
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
-    function filterProjects() {
-      const search = (document.getElementById('projectSearch')?.value || '').toLowerCase();
-      const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
-      projectItems.forEach(item => {
-        const matchCategory = activeFilter === 'all' || item.dataset.category === activeFilter;
-        const matchSearch = !search || item.textContent.toLowerCase().includes(search);
-        item.style.display = matchCategory && matchSearch ? '' : 'none';
-      });
-    }
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        filterProjects();
-      });
-    });
-
-    // Animated skill bars
-    function animateSkillBars() {
-      document.querySelectorAll('.skill-bar-item').forEach(item => {
-        const fill = item.querySelector('.skill-bar-fill');
-        const pct = item.querySelector('.skill-bar-percent');
-        if (!fill) return;
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50 && !item.dataset.animated) {
-          item.dataset.animated = 'true';
-          const progress = parseInt(item.dataset.progress) || 0;
-          fill.style.width = progress + '%';
-          if (pct) pct.textContent = progress + '%';
-        }
-      });
-    }
-    window.addEventListener('scroll', animateSkillBars);
-    window.addEventListener('load', animateSkillBars);
-
-    // Back to top (new feature)
-    const backToTop = document.getElementById('backToTop');
-    const progressCircle = document.querySelector('.back-to-top-progress');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 144.5;
-      if (progressCircle) progressCircle.style.strokeDashoffset = 144.5 - progress;
-      if (scrollTop > 300) {
-        backToTop.classList.add('show');
-      } else {
-        backToTop.classList.remove('show');
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Cursor glow effect
-    const cursorGlow = document.querySelector('.cursor-glow');
-    window.addEventListener('mousemove', (e) => {
-      cursorGlow.style.left = `${e.clientX}px`;
-      cursorGlow.style.top = `${e.clientY}px`;
-    });
-
-    // Scroll progress bar
-    const scrollProgress = document.querySelector('.scroll-progress');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      scrollProgress.style.width = `${Math.min(progress, 100)}%`;
-    });
-
-    // Theme transition
-    const themeToggleBtn = document.getElementById('themeToggle');
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
-        document.body.classList.add('theme-transitioning');
-        setTimeout(() => document.body.classList.remove('theme-transitioning'), 500);
-      });
-    }
-
-    // Particles canvas
-    const particlesCanvas = document.getElementById('particles-canvas');
-    if (particlesCanvas) {
-      const ctx = particlesCanvas.getContext('2d');
-      let particles = [];
-      const count = 80;
-      function resizeCanvas() {
-        particlesCanvas.width = window.innerWidth;
-        particlesCanvas.height = window.innerHeight;
-      }
-      resizeCanvas();
-      window.addEventListener('resize', resizeCanvas);
-      class Particle {
-        constructor() {
-          this.reset();
-        }
-        reset() {
-          this.x = Math.random() * particlesCanvas.width;
-          this.y = Math.random() * particlesCanvas.height;
-          this.size = Math.random() * 2 + 0.5;
-          this.speedX = (Math.random() - 0.5) * 0.6;
-          this.speedY = (Math.random() - 0.5) * 0.6;
-          this.opacity = Math.random() * 0.5 + 0.1;
-        }
-        update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          if (this.x < 0 || this.x > particlesCanvas.width || this.y < 0 || this.y > particlesCanvas.height) {
-            this.reset();
-          }
-        }
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
-          ctx.fill();
-        }
-      }
-      for (let i = 0; i < count; i++) particles.push(new Particle());
-      function animateParticles() {
-        ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 150) {
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(0, 212, 255, ${0.06 * (1 - dist / 150)})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-            }
-          }
-        }
-        requestAnimationFrame(animateParticles);
-      }
-      animateParticles();
-    }
-
-    // GitHub activity
-    async function loadGitHubActivity() {
-      const feed = document.getElementById('github-feed');
-      if (!feed) return;
-      try {
-        const res = await fetch('https://api.github.com/users/mdborhandev/events?per_page=5');
-        const events = await res.json();
-        feed.innerHTML = events.map(e => {
-          const icon = e.type === 'PushEvent' ? 'bi-arrow-up-circle' : e.type === 'CreateEvent' ? 'bi-plus-circle' : e.type === 'IssuesEvent' ? 'bi-exclamation-circle' : 'bi-star';
-          const desc = e.type === 'PushEvent' ? `Pushed to ${e.repo.name}` : e.type === 'CreateEvent' ? `Created ${e.repo.name}` : e.type === 'IssuesEvent' ? `Opened issue in ${e.repo.name}` : `Activity in ${e.repo.name}`;
-          return `<div class="github-item"><i class="bi ${icon}"></i><span>${desc}</span><small>${new Date(e.created_at).toLocaleDateString()}</small></div>`;
-        }).join('');
-      } catch {
-        feed.innerHTML = '<p style="color:var(--text-secondary)">Unable to load GitHub activity</p>';
-      }
-    }
-    loadGitHubActivity();
-
-    // Testimonials carousel
-    let testimonialIndex = 0;
-    function showTestimonial(i) {
-      const items = document.querySelectorAll('.testimonial-item');
-      const dots = document.querySelectorAll('.testimonial-dot');
-      if (!items.length) return;
-      testimonialIndex = (i + items.length) % items.length;
-      items.forEach((item, idx) => item.classList.toggle('active', idx === testimonialIndex));
-      dots.forEach((dot, idx) => dot.classList.toggle('active', idx === testimonialIndex));
-    }
-    function nextTestimonial() { showTestimonial(testimonialIndex + 1); }
-    function prevTestimonial() { showTestimonial(testimonialIndex - 1); }
-    document.addEventListener('DOMContentLoaded', () => showTestimonial(0));
-
-    // i18n toggle
-    let currentLang = localStorage.getItem('site-lang') || 'en';
-    function setLanguage(lang) {
-      currentLang = lang;
-      localStorage.setItem('site-lang', lang);
-      document.querySelectorAll('[data-en]').forEach(el => {
-        el.textContent = lang === 'en' ? el.dataset.en : el.dataset.bn;
-      });
-      document.querySelectorAll('[data-en-placeholder]').forEach(el => {
-        el.placeholder = lang === 'en' ? el.dataset.enPlaceholder : el.dataset.bnPlaceholder;
-      });
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-    }
-    setLanguage(currentLang);
-
-    // Loading skeleton
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('skeleton'));
-    });
-
-    // Chat widget
-    function toggleChat() {
-      document.getElementById('chatWidget').classList.toggle('open');
-      document.getElementById('chatInput').focus();
-    }
-
-    function sendChat() {
-      const input = document.getElementById('chatInput');
-      const msg = input.value.trim();
-      if (!msg) return;
-      const body = document.getElementById('chatBody');
-      body.innerHTML += `<div class="chat-msg user">${msg}</div>`;
-      input.value = '';
-      setTimeout(() => {
-        const answers = {
-          'skills': 'Borhan specializes in ASP.NET Core, C#, Web API, EF Core, PostgreSQL, SQL Server, and Bootstrap.',
-          'experience': 'He has 2+ years of experience as a Junior Programmer at Kodeblaze and also works as a Guest Trainer at NPI College.',
-          'projects': 'He has built 6+ projects: ERP, Atrai (Accounting), Halda (HRM), OKR, SmartSLead, and Gym Management.',
-          'contact': 'You can email him at mdborhan.dev@gmail.com or connect on LinkedIn.',
-          'education': 'He holds a Diploma in Computer Technology from Narsingdi Polytechnic Institute and SSC from Narsingdi High School.',
-          'default': `Great question! Borhan is a backend-focused Software Engineer skilled in ASP.NET Core, C#, PostgreSQL, and building enterprise SaaS applications.`
-        };
-        const lower = msg.toLowerCase();
-        let reply = answers.default;
-        if (lower.includes('skill') || lower.includes('tech')) reply = answers.skills;
-        else if (lower.includes('experience') || lower.includes('work')) reply = answers.experience;
-        else if (lower.includes('project')) reply = answers.projects;
-        else if (lower.includes('contact') || lower.includes('email')) reply = answers.contact;
-        else if (lower.includes('education') || lower.includes('study')) reply = answers.education;
-        body.innerHTML += `<div class="chat-msg bot">${reply}</div>`;
-        body.scrollTop = body.scrollHeight;
-      }, 300);
-      body.scrollTop = body.scrollHeight;
-    }
-
-    // Page transition
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.4s ease';
-    document.addEventListener('DOMContentLoaded', () => { requestAnimationFrame(() => { document.body.style.opacity = '1'; }); });
-    document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not([href^="http"])').forEach(a => {
-      a.addEventListener('click', e => {
-        const h = a.getAttribute('href');
-        if (h && !h.startsWith('#') && !h.startsWith('http') && !h.startsWith('javascript') && !h.startsWith('mailto')) {
-          e.preventDefault();
-          document.body.style.opacity = '0';
-          setTimeout(() => { window.location.href = h; }, 300);
-        }
-      });
-    });
-
-    // GLightbox initialization
-    if (typeof GLightbox !== 'undefined') {
-      GLightbox({ selector: '.glightbox' });
-    }
-
   </script>
+  <script src="assets/js/app.js"></script>
 </body>
 
 </html>

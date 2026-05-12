@@ -9,10 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/variables.css" rel="stylesheet">
+  <link href="assets/css/utilities.css" rel="stylesheet">
   <style>
     .error-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; }
-    .error-code { font-size: 10rem; font-weight: 800; background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+    .error-code { font-size: 10rem; font-weight: 800; line-height: 1; }
     .error-title { font-size: 1.8rem; margin-bottom: 12px; }
     .error-desc { color: var(--text-secondary); margin-bottom: 32px; font-size: 1.1rem; }
     .error-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 50px; background: var(--gradient); color: #fff; text-decoration: none; font-weight: 500; transition: all 0.3s ease; }
@@ -28,7 +29,7 @@
   <div class="error-orb two"></div>
   <div class="error-page">
     <div class="container">
-      <div class="error-code">404</div>
+      <div class="error-code text-gradient">404</div>
       <h1 class="error-title">Page Not Found</h1>
       <p class="error-desc">The page you're looking for doesn't exist or has been moved.</p>
       <a href="index.html" class="error-btn"><i class="bi bi-house"></i> Back to Home</a>

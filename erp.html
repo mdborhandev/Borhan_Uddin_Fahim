@@ -16,203 +16,12 @@
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
 
-  <link href="../assets/css/main.css" rel="stylesheet">
-  <style>
-    .project-hero {
-      padding: 120px 0 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
-      z-index: -1;
-    }
-
-    .project-icon-large {
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    .project-icon-large i {
-      font-size: 48px;
-      color: white;
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin: 24px 0;
-    }
-
-    .meta-badge {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-size: 14px;
-      color: #00d4ff;
-    }
-
-    .feature-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .feature-list li {
-      position: relative;
-      padding-left: 28px;
-      margin-bottom: 12px;
-      color: var(--text-secondary);
-    }
-
-    .feature-list li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: #00d4ff;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .tech-pill {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      color: var(--text-primary);
-      transition: all 0.3s ease;
-    }
-
-    .tech-pill:hover {
-      border-color: #00d4ff;
-      transform: translateY(-2px);
-    }
-
-    .project-gallery {
-      margin-top: 40px;
-    }
-
-    .gallery-image {
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 20px;
-      border: 1px solid var(--border);
-    }
-
-    .gallery-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-image:hover img {
-      transform: scale(1.02);
-    }
-
-    .project-links {
-      display: flex;
-      gap: 16px;
-      margin-top: 32px;
-      flex-wrap: wrap;
-    }
-
-    .project-link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .project-link-btn.primary {
-      background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
-      color: white;
-      border: none;
-    }
-
-    .project-link-btn.secondary {
-      background: transparent;
-      border: 2px solid #00d4ff;
-      color: #00d4ff;
-    }
-
-    .project-link-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-    }
-
-    .back-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 12px 20px;
-      border-radius: 12px;
-      color: var(--text-primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-    }
-
-    .back-button:hover {
-      background: var(--bg-card);
-      transform: translateX(-4px);
-    }
-
-    @media (max-width: 768px) {
-      .project-hero {
-        padding: 100px 0 40px;
-      }
-
-      .project-icon-large {
-        width: 80px;
-        height: 80px;
-      }
-
-      .project-icon-large i {
-        font-size: 32px;
-      }
-
-      .back-button {
-        top: auto;
-        bottom: 20px;
-        left: 20px;
-      }
-    }
-  </style>
+  <link href="../assets/css/variables.css" rel="stylesheet">
+  <link href="../assets/css/utilities.css" rel="stylesheet">
+  <link href="../assets/css/components.css" rel="stylesheet">
+  <link href="../assets/css/animations.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="../assets/css/project-detail.css" rel="stylesheet">
 </head>
 
 <body class="index-page body-dark">
@@ -257,7 +66,7 @@
           <div class="col-12">
             <div class="row" data-aos="fade-up" data-aos-delay="100">
               <div class="col-12">
-                <div class="glass-card p-4">
+                <div class="card-glass card-p-lg">
                   <h3 class="mb-4">About this Project</h3>
                   <p class="lead">A full-scale Enterprise Resource Planning system designed to streamline and integrate core business processes across multiple departments. This ERP solution provides a unified platform for managing inventory, supply chain, human resources, finance, and operational workflows in real-time.</p>
                   <div class="mt-4">
@@ -351,7 +160,7 @@
             <h2 class="section-title">Technologies Used</h2>
             <div class="row">
               <div class="col-12 col-lg-10 offset-lg-1">
-                <div class="glass-card p-4">
+                <div class="card-glass card-p-lg">
                   <div class="tech-stack">
                     <div class="tech-pill" style="border-color: #00d4ff30;">
                       <i class="bi bi-code-slash me-2" style="color: #00d4ff;"></i>ASP.NET Core MVC

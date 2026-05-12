@@ -35,28 +35,12 @@
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
 
-  <link href="../assets/css/main.css" rel="stylesheet">
-  <style>
-    .project-hero { padding: 120px 0 60px; position: relative; overflow: hidden; }
-    .project-hero::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(180deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
-      z-index: -1;
-    }
-    .project-icon-large {
-      width: 100px; height: 100px;
-      background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
-      border-radius: 20px; display: flex; align-items: center; justify-content: center;
-      margin-bottom: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    }
-    .project-icon-large i { font-size: 40px; color: white; }
-    .back-button {
-      position: fixed; top: 20px; left: 20px; z-index: 1000;
-      background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08); padding: 12px 20px;
-      border-radius: 12px; color: var(--text-primary); text-decoration: none;
-      display: flex; align-items: center; gap: 8px; transition: all 0.3s ease;
-    }
+  <link href="../assets/css/variables.css" rel="stylesheet">
+  <link href="../assets/css/utilities.css" rel="stylesheet">
+  <link href="../assets/css/components.css" rel="stylesheet">
+  <link href="../assets/css/animations.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="../assets/css/project-detail.css" rel="stylesheet">
     .back-button:hover { background: var(--bg-card); transform: translateX(-4px); }
     .blog-content p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
     .blog-content h2 { margin-top: 40px; margin-bottom: 14px; font-size: 1.6rem; }
@@ -135,7 +119,7 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-10">
-            <div class="glass-card p-4 p-md-5 blog-content" data-aos="fade-up">
+            <div class="card-glass card-p-lg blog-content" data-aos="fade-up">
 
               <p>There was a time when programming meant memorizing syntax, writing thousands of lines of code, and spending hours fixing small bugs. But the modern technology era is changing that reality very quickly. We are entering a new generation where people may no longer need to manually write every line of code — Artificial Intelligence (AI) will do most of it.</p>
 
