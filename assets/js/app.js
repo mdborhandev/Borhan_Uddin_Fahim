@@ -93,7 +93,7 @@ window.addEventListener('scroll', () => {
 (function() { emailjs.init("UfmpMSg2KlcJjyIX0"); })();
 document.querySelector('.contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  const btn = this.querySelector('.btn-submit');
+  const btn = this.querySelector('.btn-primary');
   btn.textContent = 'Sending...';
   btn.disabled = true;
   emailjs.sendForm('service_vxkwckv', 'template_txkht7q', this)
@@ -164,24 +164,6 @@ filterButtons.forEach(button => {
     filterProjects();
   });
 });
-
-// ====== Skill Bars ======
-function animateSkillBars() {
-  document.querySelectorAll('.skill-bar-item').forEach(item => {
-    const fill = item.querySelector('.skill-bar-fill');
-    const pct = item.querySelector('.skill-bar-percent');
-    if (!fill) return;
-    const rect = item.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 50 && !item.dataset.animated) {
-      item.dataset.animated = 'true';
-      const progress = parseInt(item.dataset.progress) || 0;
-      fill.style.width = progress + '%';
-      if (pct) pct.textContent = progress + '%';
-    }
-  });
-}
-window.addEventListener('scroll', animateSkillBars);
-window.addEventListener('load', animateSkillBars);
 
 // ====== Back to Top ======
 const backToTop = document.getElementById('backToTop');

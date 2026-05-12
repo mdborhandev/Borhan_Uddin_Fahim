@@ -1,7 +1,11 @@
-const CACHE = 'borhan-portfolio-v1';
+const CACHE = 'borhan-portfolio-v2';
 const urlsToCache = [
   '/index.html',
-  '/assets/css/main.css',
+  '/assets/css/variables.css',
+  '/assets/css/utilities.css',
+  '/assets/css/components.css',
+  '/assets/css/animations.css',
+  '/assets/css/responsive.css',
   '/assets/vendor/bootstrap/css/bootstrap.min.css',
   '/assets/vendor/bootstrap-icons/bootstrap-icons.css',
   '/assets/vendor/aos/aos.css',
