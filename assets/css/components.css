@@ -532,6 +532,8 @@
   border-color: var(--accent);
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
 }
+.equal-height-row .resume-card { flex-grow: 1; }
+.equal-height-row .resume-card:last-child { margin-bottom: 0; }
 .resume-date { font-size: 0.9rem; color: var(--accent); }
 .resume-card h4 { margin: 8px 0; }
 .company { color: var(--text-secondary); margin-bottom: 15px; }
