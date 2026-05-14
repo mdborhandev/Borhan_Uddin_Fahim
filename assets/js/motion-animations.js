@@ -2,10 +2,8 @@
   const { animate, scroll, inView, stagger, hover, press } = Motion;
 
   function addHidden() {
-    document.querySelectorAll('.hero-greeting, .hero-name, .hero-title, .hero-tagline, .hero-cta-group, .hero-img-wrapper, .hero-social-links, .hero-info-grid, .hero-tech-stack, .service-card, .project-item, .resume-card, .cert-card, .blog-card, .skill-category-box, .section-header h2, .section-header p')
+    document.querySelectorAll('.hero-greeting, .hero-name, .hero-title, .hero-tagline, .hero-cta-group, .hero-img-wrapper, .hero-social-links, .hero-info-grid, .hero-tech-stack')
       .forEach(el => el.classList.add('motion-hidden'));
-    document.querySelectorAll('.skill-tag')
-      .forEach(el => el.classList.add('motion-hidden-left'));
     document.querySelectorAll('.floating-nav .nav-icon')
       .forEach(el => el.classList.add('motion-hidden-left'));
   }
@@ -46,11 +44,12 @@
     });
   }
 
-  // Hero image ring continuous rotation
+  // Hero image ring continuous rotation with 3D perspective
   function initHeroRing() {
     const ring = document.querySelector('.hero-img-ring');
     if (ring) {
-      animate(ring, { rotate: 360 }, {
+      ring.style.perspective = '500px';
+      animate(ring, { rotateZ: 360 }, {
         duration: 12,
         repeat: Infinity,
         easing: 'linear'
@@ -58,7 +57,7 @@
     }
   }
 
-  // Section header reveal animation
+  // Section header reveal
   function initSectionHeaders() {
     inView('.section-header', (el) => {
       const h2 = el.querySelector('h2');
@@ -72,49 +71,54 @@
     }, { amount: 0.3 });
   }
 
-  // inView scroll-triggered animations
-  function initScrollAnimations() {
-    inView('#services .row', () => {
-      animate('.service-card', { opacity: 1, y: 0 }, {
-        delay: stagger(0.12), duration: 0.6, easing: 'easeOut'
+  // Bidirectional scroll-linked reveal (works up AND down)
+  function initScrollReveal() {
+    const revealItems = [
+      { sel: '.service-card', offset: ['start end', 'start start'] },
+      { sel: '.project-item', offset: ['start end', 'start start'] },
+      { sel: '.resume-card', offset: ['start end', 'start start'] },
+      { sel: '.cert-card', offset: ['start end', 'start start'] },
+      { sel: '.blog-card', offset: ['start end', 'start start'] },
+      { sel: '.skill-category-box', offset: ['start end', 'start start'] },
+      { sel: '.skill-tag', offset: ['start end', 'start start'] },
+    ];
+    revealItems.forEach(({ sel, offset }) => {
+      document.querySelectorAll(sel).forEach(el => {
+        const anim = animate(el, { opacity: [0, 1], y: [24, 0] }, {
+          duration: 1, easing: 'easeOut'
+        });
+        scroll(anim, { target: el, offset });
       });
-      return () => { };
-    }, { amount: 0.3 });
-
-    inView('.skill-tag', (el) => {
-      animate(el, { opacity: 1, x: 0 }, { duration: 0.4, easing: 'easeOut' });
-      return () => { };
-    }, { amount: 0.5 });
-
-    inView('.project-item', (el) => {
-      animate(el, { opacity: 1, y: 0 }, { duration: 0.5, easing: 'easeOut' });
-      return () => { };
-    }, { amount: 0.3 });
-
-    inView('.resume-card', (el) => {
-      animate(el, { opacity: 1, y: 0 }, { duration: 0.5, easing: 'easeOut' });
-      return () => { };
-    }, { amount: 0.3 });
-
-    inView('.cert-card', (el) => {
-      animate(el, { opacity: 1, y: 0 }, { duration: 0.5, easing: 'easeOut' });
-      return () => { };
-    }, { amount: 0.3 });
-
-    inView('.blog-card', (el) => {
-      animate(el, { opacity: 1, y: 0 }, { duration: 0.5, easing: 'easeOut' });
-      return () => { };
-    }, { amount: 0.3 });
-
-    inView('.skill-category-box', (el) => {
-      animate(el, { opacity: 1, y: 0 }, {
-        delay: stagger(0.08), duration: 0.5, easing: 'easeOut'
-      });
-      return () => { };
-    }, { amount: 0.2 });
+    });
   }
 
-  // Smooth stat counter with animate()
+  // 3D scroll parallax for sections
+  function init3DParallax() {
+    document.querySelectorAll('.section, .hero-section').forEach(section => {
+      const speed = section.classList.contains('hero-section') ? 0.04 : 0.02;
+      const anim = animate(section, { y: [30, -30] }, { duration: 1, easing: 'easeOut' });
+      scroll(anim, { target: section, offset: ['start end', 'end start'] });
+    });
+  }
+
+  // 3D perspective depth on hover (elements NOT in scroll-linked reveal)
+  function init3DHover() {
+    hover('.floating-nav .nav-icon, .social-icon, .hero-img-wrapper', (el) => {
+      const onMove = (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
+        el.style.transform = `perspective(500px) rotateY(${x}deg) rotateX(${y}deg)`;
+      };
+      window.addEventListener('mousemove', onMove);
+      return () => {
+        window.removeEventListener('mousemove', onMove);
+        el.style.transform = '';
+      };
+    });
+  }
+
+  // Smooth stat counter
   function initStatCounters() {
     inView('.project-stat-num', (el) => {
       const target = parseFloat(el.dataset.count);
@@ -136,15 +140,10 @@
     const progressBar = document.querySelector('.scroll-progress');
     const backToTopBtn = document.getElementById('backToTop');
     const progressCircle = document.querySelector('.back-to-top-progress');
-
     scroll(progress => {
       if (progressBar) progressBar.style.width = `${progress * 100}%`;
-      if (backToTopBtn) {
-        backToTopBtn.classList.toggle('show', window.scrollY > 300);
-      }
-      if (progressCircle) {
-        progressCircle.style.strokeDashoffset = 144.5 - (progress * 144.5);
-      }
+      if (backToTopBtn) backToTopBtn.classList.toggle('show', window.scrollY > 300);
+      if (progressCircle) progressCircle.style.strokeDashoffset = 144.5 - (progress * 144.5);
     });
   }
 
@@ -152,14 +151,11 @@
   function initNavHighlight() {
     const sections = document.querySelectorAll('section[id]');
     if (!sections.length) return;
-
     scroll((_, info) => {
       const scrollY = info.y.current;
       let current = '';
       sections.forEach(sec => {
-        if (scrollY >= sec.offsetTop - 200) {
-          current = sec.getAttribute('id');
-        }
+        if (scrollY >= sec.offsetTop - 200) current = sec.getAttribute('id');
       });
       document.querySelectorAll('.floating-nav a').forEach(link => {
         link.classList.toggle('active', link.getAttribute('href') === '#' + current);
@@ -169,36 +165,22 @@
 
   // Hover animations
   function initHoverAnimations() {
-    hover('.project-card, .service-card', (el) => {
-      const anim = animate(el, { y: -6, scale: 1.02 }, { duration: 0.3, easing: 'easeOut' });
-      return () => anim.stop();
-    });
-
     hover('.social-icon', (el) => {
       const anim = animate(el, { scale: 1.2 }, { duration: 0.2, easing: 'easeOut' });
       return () => anim.stop();
     });
-
     hover('.skill-tag', (el) => {
       const anim = animate(el, { scale: 1.08 }, { duration: 0.2, easing: 'easeOut' });
       return () => anim.stop();
     });
-
     hover('.btn', (el) => {
       const anim = animate(el, { scale: 1.05 }, { duration: 0.2, easing: 'easeOut' });
       return () => anim.stop();
     });
-
-    hover('.cert-card', (el) => {
-      const anim = animate(el, { y: -4 }, { duration: 0.25, easing: 'easeOut' });
-      return () => anim.stop();
-    });
-
     hover('.blog-card', (el) => {
       const anim = animate(el, { y: -4 }, { duration: 0.25, easing: 'easeOut' });
       return () => anim.stop();
     });
-
     hover('.info-card', (el) => {
       const anim = animate(el, { y: -3, scale: 1.02 }, { duration: 0.25, easing: 'easeOut' });
       return () => anim.stop();
@@ -211,19 +193,17 @@
       animate(el, { scale: 0.95 }, { duration: 0.1, easing: 'easeOut' });
       return () => animate(el, { scale: 1 }, { duration: 0.15, easing: 'easeOut' });
     });
-
     press('.project-card, .service-card, .cert-card', (el) => {
       animate(el, { scale: 0.98 }, { duration: 0.1, easing: 'easeOut' });
       return () => animate(el, { scale: 1 }, { duration: 0.15, easing: 'easeOut' });
     });
-
     press('.social-icon', (el) => {
       animate(el, { scale: 0.9 }, { duration: 0.1 });
       return () => animate(el, { scale: 1 }, { duration: 0.15 });
     });
   }
 
-  // Form input focus animations
+  // Form input focus
   function initFormAnimations() {
     document.querySelectorAll('.contact-form .form-control').forEach(input => {
       input.addEventListener('focus', () => {
@@ -235,7 +215,7 @@
     });
   }
 
-  // Scroll-driven opacity for hero section background
+  // Hero parallax
   function initHeroParallax() {
     const heroBg = document.querySelector('.hero-bg');
     if (!heroBg) return;
@@ -253,7 +233,9 @@
     initOrbAnimation();
     initHeroRing();
     initSectionHeaders();
-    initScrollAnimations();
+    initScrollReveal();
+    init3DParallax();
+    init3DHover();
     initStatCounters();
     initScrollProgress();
     initHoverAnimations();
