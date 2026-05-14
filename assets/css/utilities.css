@@ -191,10 +191,14 @@
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 0;
   height: 3px;
   background: var(--gradient);
   border-radius: 2px;
+  transition: width 0.6s ease;
+}
+.section-header.reveal h2::after {
+  width: 60px;
 }
 .section-header p {
   font-size: 1.1rem;

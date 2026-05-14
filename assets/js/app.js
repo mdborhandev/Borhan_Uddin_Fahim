@@ -46,30 +46,6 @@ function typeText(selector, items) {
 typeText('.typed-tagline', ['Software Engineer', 'ASP.NET Core Developer', 'Backend Developer']);
 typeText('.typed-sub', ['Building enterprise solutions with clean architecture', 'Backend Developer | ASP.NET Core Specialist', 'Software Engineer | SaaS Architect']);
 
-// ====== Stats Counter ======
-const statElements = document.querySelectorAll('.stat-number, .project-stat-num');
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const count = parseInt(el.dataset.count);
-      let current = 0;
-      const increment = count / 50;
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= count) {
-          el.textContent = count + '+';
-          clearInterval(timer);
-        } else {
-          el.textContent = Math.floor(current);
-        }
-      }, 30);
-      statObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-statElements.forEach(stat => statObserver.observe(stat));
-
 // ====== Active Nav on Scroll ======
 const navSections = document.querySelectorAll('section');
 const navLinks = document.querySelectorAll('.floating-nav a');
