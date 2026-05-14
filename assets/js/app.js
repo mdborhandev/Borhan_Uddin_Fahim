@@ -267,14 +267,19 @@ async function loadGitHubActivity() {
   if (!feed) return;
   try {
     const res = await fetch('https://api.github.com/users/mdborhandev/events?per_page=5');
+    if (!res.ok) throw new Error('API Error');
     const events = await res.json();
+    if (!events || events.length === 0) {
+      feed.innerHTML = '<div class="github-item"><i class="bi bi-github"></i><span>Check my GitHub for recent activity</span><small><a href="https://github.com/mdborhandev" target="_blank" style="color:var(--accent)">github.com/mdborhandev</a></small></div>';
+      return;
+    }
     feed.innerHTML = events.map(e => {
       const icon = e.type === 'PushEvent' ? 'bi-arrow-up-circle' : e.type === 'CreateEvent' ? 'bi-plus-circle' : e.type === 'IssuesEvent' ? 'bi-exclamation-circle' : 'bi-star';
       const desc = e.type === 'PushEvent' ? `Pushed to ${e.repo.name}` : e.type === 'CreateEvent' ? `Created ${e.repo.name}` : e.type === 'IssuesEvent' ? `Opened issue in ${e.repo.name}` : `Activity in ${e.repo.name}`;
       return `<div class="github-item"><i class="bi ${icon}"></i><span>${desc}</span><small>${new Date(e.created_at).toLocaleDateString()}</small></div>`;
     }).join('');
   } catch {
-    feed.innerHTML = '<p style="color:var(--text-secondary)">Unable to load GitHub activity</p>';
+    feed.innerHTML = '<div class="github-item"><i class="bi bi-github"></i><span>View my projects on GitHub</span><small><a href="https://github.com/mdborhandev" target="_blank" style="color:var(--accent)">github.com/mdborhandev</a></small></div>';
   }
 }
 loadGitHubActivity();
