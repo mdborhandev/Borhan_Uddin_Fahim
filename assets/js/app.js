@@ -274,21 +274,6 @@ function nextTestimonial() { showTestimonial(testimonialIndex + 1); }
 function prevTestimonial() { showTestimonial(testimonialIndex - 1); }
 document.addEventListener('DOMContentLoaded', () => showTestimonial(0));
 
-// ====== i18n Toggle ======
-let currentLang = localStorage.getItem('site-lang') || 'en';
-function setLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem('site-lang', lang);
-  document.querySelectorAll('[data-en]').forEach(el => {
-    el.textContent = lang === 'en' ? el.dataset.en : el.dataset.bn;
-  });
-  document.querySelectorAll('[data-en-placeholder]').forEach(el => {
-    el.placeholder = lang === 'en' ? el.dataset.enPlaceholder : el.dataset.bnPlaceholder;
-  });
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
-}
-setLanguage(currentLang);
-
 // ====== Skeleton Loading ======
 window.addEventListener('load', () => {
   document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('skeleton'));

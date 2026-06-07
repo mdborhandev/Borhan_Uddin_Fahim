@@ -28,9 +28,7 @@
     background: rgba(0, 212, 255, 0.1);
     border-color: var(--accent);
     color: var(--accent);
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
   }
-  .lang-toggle { right: 80px; }
 }
 
 @media (min-width: 992px) {
@@ -121,7 +119,7 @@
 @media print {
   .floating-nav, .header-toggle, .mobile-menu, .cursor-glow,
   .back-to-top, .orb, #particles-canvas, .scroll-progress,
-  .lang-toggle, .contact-form, .project-filter { display: none !important; }
+  .contact-form, .project-filter { display: none !important; }
   body { background: #fff !important; color: #000 !important; }
   .section { padding: 20px 0 !important; page-break-inside: avoid; }
 }
