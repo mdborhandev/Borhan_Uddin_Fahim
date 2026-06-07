@@ -95,12 +95,33 @@
 
   // 3D perspective depth on hover (elements NOT in scroll-linked reveal)
   function init3DHover() {
-    hover('.floating-nav .nav-icon, .social-icon, .hero-img-wrapper', (el) => {
+    hover('.floating-nav .nav-icon, .social-icon, .hero-img-wrapper, .service-card, .project-card, .resume-card, .cert-card, .blog-card, .info-card', (el) => {
       const onMove = (e) => {
         const rect = el.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-        const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
-        el.style.transform = `perspective(500px) rotateY(${x}deg) rotateX(${y}deg)`;
+        let factor = 20;
+        let scale = 1;
+        let lift = 0;
+        
+        if (el.classList.contains('service-card') || el.classList.contains('project-card')) {
+          factor = 8;
+          scale = 1.025;
+          lift = -8;
+        } else if (el.classList.contains('resume-card') || el.classList.contains('cert-card') || el.classList.contains('blog-card') || el.classList.contains('info-card')) {
+          factor = 10;
+          scale = 1.015;
+          lift = -6;
+        } else if (el.classList.contains('social-icon')) {
+          factor = 15;
+          scale = 1.2;
+        } else if (el.classList.contains('nav-icon')) {
+          factor = 15;
+          scale = 1.1;
+        }
+        
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * factor;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * -factor;
+        
+        el.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${y}deg) scale(${scale}) translateY(${lift}px)`;
       };
       window.addEventListener('mousemove', onMove);
       return () => {
@@ -157,24 +178,12 @@
 
   // Hover animations
   function initHoverAnimations() {
-    hover('.social-icon', (el) => {
-      const anim = animate(el, { scale: 1.2 }, { duration: 0.2, easing: 'easeOut' });
-      return () => anim.stop();
-    });
     hover('.skill-tag', (el) => {
       const anim = animate(el, { scale: 1.08 }, { duration: 0.2, easing: 'easeOut' });
       return () => anim.stop();
     });
     hover('.btn', (el) => {
       const anim = animate(el, { scale: 1.05 }, { duration: 0.2, easing: 'easeOut' });
-      return () => anim.stop();
-    });
-    hover('.blog-card', (el) => {
-      const anim = animate(el, { y: -4 }, { duration: 0.25, easing: 'easeOut' });
-      return () => anim.stop();
-    });
-    hover('.info-card', (el) => {
-      const anim = animate(el, { y: -3, scale: 1.02 }, { duration: 0.25, easing: 'easeOut' });
       return () => anim.stop();
     });
   }

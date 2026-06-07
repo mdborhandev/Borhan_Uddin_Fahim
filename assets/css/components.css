@@ -9,6 +9,12 @@
   transform: translate(-50%, -50%);
   z-index: 1;
   mix-blend-mode: screen;
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+}
+.cursor-glow.cursor-hovering {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.28) 0%, rgba(0, 212, 255, 0) 70%);
 }
 .orb {
   position: fixed;

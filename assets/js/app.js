@@ -177,6 +177,21 @@ if (cursorGlow) {
     cursorGlow.style.left = `${e.clientX}px`;
     cursorGlow.style.top = `${e.clientY}px`;
   });
+
+  // Scale up cursor glow when hovering interactive elements
+  document.addEventListener('mouseenter', (e) => {
+    const target = e.target;
+    if (target && target.closest && target.closest('a, button, .btn, .service-card, .project-card, .resume-card, .cert-card, .social-icon, .nav-icon, .skill-tag')) {
+      cursorGlow.classList.add('cursor-hovering');
+    }
+  }, true);
+
+  document.addEventListener('mouseleave', (e) => {
+    const target = e.target;
+    if (target && target.closest && target.closest('a, button, .btn, .service-card, .project-card, .resume-card, .cert-card, .social-icon, .nav-icon, .skill-tag')) {
+      cursorGlow.classList.remove('cursor-hovering');
+    }
+  }, true);
 }
 
 // ====== Particles Canvas ======
