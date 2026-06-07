@@ -6,6 +6,10 @@
       .forEach(el => el.classList.add('motion-hidden'));
     document.querySelectorAll('.floating-nav .nav-icon')
       .forEach(el => el.classList.add('motion-hidden-left'));
+    document.querySelectorAll('.section-header h2, .section-header p')
+      .forEach(el => el.classList.add('motion-hidden'));
+    document.querySelectorAll('.service-card, .project-item, .resume-card, .cert-card, .blog-card, .skill-category-box, .skill-tag')
+      .forEach(el => el.classList.add('motion-hidden'));
   }
 
   // Hero entrance timeline
@@ -71,33 +75,21 @@
     }, { amount: 0.3 });
   }
 
-  // Bidirectional scroll-linked reveal (works up AND down)
+  // Proper entrance scroll reveal animation using inView
   function initScrollReveal() {
-    const revealItems = [
-      { sel: '.service-card', offset: ['start end', 'start start'] },
-      { sel: '.project-item', offset: ['start end', 'start start'] },
-      { sel: '.resume-card', offset: ['start end', 'start start'] },
-      { sel: '.cert-card', offset: ['start end', 'start start'] },
-      { sel: '.blog-card', offset: ['start end', 'start start'] },
-      { sel: '.skill-category-box', offset: ['start end', 'start start'] },
-      { sel: '.skill-tag', offset: ['start end', 'start start'] },
+    const selectors = [
+      '.service-card',
+      '.project-item',
+      '.resume-card',
+      '.cert-card',
+      '.blog-card',
+      '.skill-category-box',
+      '.skill-tag'
     ];
-    revealItems.forEach(({ sel, offset }) => {
-      document.querySelectorAll(sel).forEach(el => {
-        const anim = animate(el, { opacity: [0, 1], y: [24, 0] }, {
-          duration: 1, easing: 'easeOut'
-        });
-        scroll(anim, { target: el, offset });
-      });
-    });
-  }
-
-  // 3D scroll parallax for sections
-  function init3DParallax() {
-    document.querySelectorAll('.section, .hero-section').forEach(section => {
-      const speed = section.classList.contains('hero-section') ? 0.04 : 0.02;
-      const anim = animate(section, { y: [30, -30] }, { duration: 1, easing: 'easeOut' });
-      scroll(anim, { target: section, offset: ['start end', 'end start'] });
+    selectors.forEach(sel => {
+      inView(sel, (el) => {
+        animate(el, { opacity: 1, y: 0 }, { duration: 0.6, easing: 'easeOut' });
+      }, { amount: 0.15 });
     });
   }
 
@@ -234,7 +226,6 @@
     initHeroRing();
     initSectionHeaders();
     initScrollReveal();
-    init3DParallax();
     init3DHover();
     initStatCounters();
     initScrollProgress();
