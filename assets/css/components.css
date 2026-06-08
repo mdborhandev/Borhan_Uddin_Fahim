@@ -48,7 +48,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: var(--bg-primary);
+  background: transparent;
   overflow: hidden;
   perspective: 1000px;
 }
