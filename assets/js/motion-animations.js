@@ -96,6 +96,7 @@
   // 3D perspective depth on hover (elements NOT in scroll-linked reveal)
   function init3DHover() {
     hover('.floating-nav .nav-icon, .social-icon, .hero-img-wrapper, .service-card, .project-card, .resume-card, .cert-card, .blog-card, .info-card', (el) => {
+      const origTransform = el.style.transform || '';
       const onMove = (e) => {
         const rect = el.getBoundingClientRect();
         let factor = 20;
@@ -121,12 +122,12 @@
         const x = ((e.clientX - rect.left) / rect.width - 0.5) * factor;
         const y = ((e.clientY - rect.top) / rect.height - 0.5) * -factor;
         
-        el.style.transform = `perspective(800px) rotateY(${x}deg) rotateX(${y}deg) scale(${scale}) translateY(${lift}px)`;
+        el.style.transform = `${origTransform} perspective(800px) rotateY(${x}deg) rotateX(${y}deg) scale(${scale}) translateY(${lift}px)`;
       };
       window.addEventListener('mousemove', onMove);
       return () => {
         window.removeEventListener('mousemove', onMove);
-        el.style.transform = '';
+        el.style.transform = origTransform || '';
       };
     });
   }
