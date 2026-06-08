@@ -52,7 +52,7 @@
   <div class="orb orb-two"></div>
 
   <i class="header-toggle bi bi-list" onclick="toggleMenu()"></i>
-
+  <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme"><i class="bi bi-moon-stars"></i></button>
 
   <nav class="floating-nav">
     <a href="#hero" class="nav-icon active" title="Home"><i class="bi bi-house"></i></a>
@@ -92,6 +92,14 @@
     </div>
     <div class="chat-body" id="chatBody">
       <div class="chat-msg bot">Hi! Ask me about Borhan's skills, experience, or projects.</div>
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="suggestion-chip" onclick="askSuggestion('What are Borhan\'s skills?')">Skills</button>
+        <button class="suggestion-chip" onclick="askSuggestion('Tell me about his experience')">Experience</button>
+        <button class="suggestion-chip" onclick="askSuggestion('What projects has he built?')">Projects</button>
+        <button class="suggestion-chip" onclick="askSuggestion('How to contact him?')">Contact</button>
+        <button class="suggestion-chip" onclick="askSuggestion('What is his educational background?')">Education</button>
+        <button class="suggestion-chip" onclick="askSuggestion('What services does he offer?')">Services</button>
+      </div>
     </div>
     <div class="chat-footer">
       <input type="text" id="chatInput" placeholder="Type your question..." onkeydown="if(event.key==='Enter') sendChat()">

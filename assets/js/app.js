@@ -104,18 +104,18 @@ const themeToggle = document.getElementById('themeToggle');
 const preferredTheme = localStorage.getItem('site-theme');
 if (preferredTheme === 'light') {
   document.body.classList.add('light-theme');
-  themeToggle.innerHTML = '<i class="bi bi-sun"></i> Toggle Theme';
-}
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme');
-    if (document.body.classList.contains('light-theme')) {
-      themeToggle.innerHTML = '<i class="bi bi-sun"></i> Toggle Theme';
-      localStorage.setItem('site-theme', 'light');
-    } else {
-      themeToggle.innerHTML = '<i class="bi bi-moon-stars"></i> Toggle Theme';
-      localStorage.setItem('site-theme', 'dark');
-    }
+  themeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+  }
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      if (document.body.classList.contains('light-theme')) {
+        themeToggle.innerHTML = '<i class="bi bi-sun"></i>';
+        localStorage.setItem('site-theme', 'light');
+      } else {
+        themeToggle.innerHTML = '<i class="bi bi-moon-stars"></i>';
+        localStorage.setItem('site-theme', 'dark');
+      }
     document.body.classList.add('theme-transitioning');
     setTimeout(() => document.body.classList.remove('theme-transitioning'), 500);
   });
@@ -316,29 +316,63 @@ function toggleChat() {
   document.getElementById('chatWidget').classList.toggle('open');
   document.getElementById('chatInput').focus();
 }
+function askSuggestion(q) {
+  document.getElementById('chatInput').value = q;
+  sendChat();
+}
+function getReply(msg) {
+  const lower = msg.toLowerCase();
+  if (lower.includes('skill') || lower.includes('tech') || lower.includes('know') || lower.includes('stack')) {
+    return 'Borhan specializes in ASP.NET Core, C#, Web API, EF Core, PostgreSQL, SQL Server, Bootstrap, JavaScript, and Git. He also works with Docker, REST APIs, and cloud deployment.';
+  }
+  if (lower.includes('experience') || lower.includes('work') || lower.includes('job') || lower.includes('career') || lower.includes('professional')) {
+    return 'He has 2+ years of professional experience. He works as a Junior Programmer at Genuine Technology & Research Ltd. and also serves as a Guest Trainer (Web Development) at A K Khan UCEP TVET Institute.';
+  }
+  if (lower.includes('project')) {
+    return 'He has built 6+ projects: ERP System, Atrai (Accounting Software), Halda (HRM), OKR (Goal Management), SmartSLead (Lead Management), and Gym Management System. Check the Projects section for details!';
+  }
+  if (lower.includes('number') || lower.includes('phone') || lower.includes('call') || lower.includes('mobile') || lower.includes('whatsapp') || lower.includes('cell')) {
+    return 'For professional inquiries, please reach out via email at mdborhan.dev@gmail.com or connect on LinkedIn. His phone number is available upon request through those channels.';
+  }
+  if (lower.includes('contact') || lower.includes('email') || lower.includes('reach') || lower.includes('hire') || lower.includes('message')) {
+    return 'You can email him at mdborhan.dev@gmail.com, connect on LinkedIn (linkedin.com/in/borhan-uddin-fahim), or follow on GitHub (github.com/mdborhandev).';
+  }
+  if (lower.includes('education') || lower.includes('study') || lower.includes('diploma') || lower.includes('degree') || lower.includes('academic') || lower.includes('certification')) {
+    return 'He holds a Diploma in Computer Science from A K Khan UCEP Polytechnic Institute with a GPA of 3.82/4.0. He is also a Microsoft Certified: Azure AI Fundamentals (AI-900).';
+  }
+  if (lower.includes('service') || lower.includes('offer') || lower.includes('build') || lower.includes('develop')) {
+    return 'He offers Website Building, SaaS Development, and Custom Software Development. From landing pages to enterprise SaaS platforms — built with ASP.NET Core, modern frontends, and PostgreSQL.';
+  }
+  if (lower.includes('certificate') || lower.includes('cert') || lower.includes('achieve') || lower.includes('award')) {
+    return 'Borhan holds several certifications: Microsoft Certified Azure AI Fundamentals (AI-900) and multiple programming certificates. Check the Certificates section!';
+  }
+  if (lower.includes('blog') || lower.includes('write') || lower.includes('article') || lower.includes('post')) {
+    return 'He writes about programming, AI, and tech trends on his blog. Check the Blog section for his latest articles!';
+  }
+  if (lower.includes('asp') || lower.includes('c#') || lower.includes('csharp') || lower.includes('.net') || lower.includes('backend')) {
+    return 'Borhan is a backend-focused engineer with deep expertise in ASP.NET Core, C#, Web API, Entity Framework Core, and RESTful service design.';
+  }
+  if (lower.includes('database') || lower.includes('sql') || lower.includes('postgres') || lower.includes('data')) {
+    return 'He works with PostgreSQL, SQL Server, and EF Core for database design and management. He builds efficient, normalized database schemas for enterprise applications.';
+  }
+  if (lower.includes('name') || lower.includes('who is') || lower.includes('tell me about borhan') || lower.includes('introduce')) {
+    return 'His full name is Mohammed Borhan Uddin Fahim. He is a backend-focused Software Engineer with expertise in ASP.NET Core, C#, and PostgreSQL. He works at Genuine Technology & Research Ltd. and also serves as a Guest Trainer at A K Khan UCEP TVET Institute.';
+  }
+  if (lower === 'hello' || lower === 'hi' || lower === 'hey' || lower === 'assalamu alaikum' || lower.startsWith('hello ') || lower.startsWith('hi ') || lower.startsWith('hey ') || lower === 'assalamualaikum' || lower.startsWith('assalamu')) {
+    return 'Hello! 👋 Thanks for reaching out. Feel free to ask about Borhan\'s skills, experience, projects, or anything else!';
+  }
+  return 'Great question! Borhan is a backend-focused Software Engineer skilled in ASP.NET Core, C#, PostgreSQL, and building enterprise SaaS applications. For more specific info, try asking about his skills, experience, projects, or services!';
+}
 function sendChat() {
   const input = document.getElementById('chatInput');
   const msg = input.value.trim();
   if (!msg) return;
   const body = document.getElementById('chatBody');
+  document.getElementById('chatSuggestions')?.remove();
   body.innerHTML += `<div class="chat-msg user">${msg}</div>`;
   input.value = '';
   setTimeout(() => {
-    const answers = {
-      'skills': 'Borhan specializes in ASP.NET Core, C#, Web API, EF Core, PostgreSQL, SQL Server, and Bootstrap.',
-      'experience': 'He has 2+ years of experience as a Junior Programmer at Genuine Technology & Research Ltd. and also works as a Guest Trainer at A K Khan UCEP TVET Institute.',
-      'projects': 'He has built 6+ projects: ERP, Atrai (Accounting), Halda (HRM), OKR, SmartSLead, and Gym Management.',
-      'contact': 'You can email him at mdborhan.dev@gmail.com or connect on LinkedIn.',
-      'education': 'He holds a Diploma in Computer Science from A K Khan UCEP Polytechnic Institute with GPA 3.82/4.0.',
-      'default': 'Great question! Borhan is a backend-focused Software Engineer skilled in ASP.NET Core, C#, PostgreSQL, and building enterprise SaaS applications.'
-    };
-    const lower = msg.toLowerCase();
-    let reply = answers.default;
-    if (lower.includes('skill') || lower.includes('tech')) reply = answers.skills;
-    else if (lower.includes('experience') || lower.includes('work')) reply = answers.experience;
-    else if (lower.includes('project')) reply = answers.projects;
-    else if (lower.includes('contact') || lower.includes('email')) reply = answers.contact;
-    else if (lower.includes('education') || lower.includes('study')) reply = answers.education;
+    const reply = getReply(msg);
     body.innerHTML += `<div class="chat-msg bot">${reply}</div>`;
     body.scrollTop = body.scrollHeight;
   }, 300);
