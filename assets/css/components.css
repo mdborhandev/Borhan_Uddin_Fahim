@@ -94,12 +94,6 @@
   align-items: center;
   gap: 20px;
 }
-.hero-cta-group {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 .hero-tech-stack {
   margin-top: 28px;
   display: flex;
@@ -205,8 +199,14 @@
 .hero-cta-group {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   flex-wrap: wrap;
+}
+.hero-cta-group .btn,
+.hero-cta-group .btn-outline {
+  padding: 8px 20px;
+  font-size: 0.88rem;
+  border-radius: 30px;
 }
 .btn-outline {
   background: transparent;
@@ -235,10 +235,16 @@
   padding: 15px;
   border-radius: 12px;
   border: 1px solid var(--border);
+  min-width: 0;
+}
+.info-card > div {
+  min-width: 0;
+  overflow: hidden;
 }
 .info-card i {
   font-size: 1.5rem;
   color: var(--accent);
+  flex-shrink: 0;
 }
 .info-card small {
   display: block;
@@ -251,6 +257,7 @@
   color: var(--text-primary);
   font-weight: 500;
   font-size: 0.9rem;
+  word-break: break-word;
 }
 .hero-tech-stack {
   display: flex;
@@ -266,16 +273,21 @@
 @media (max-width: 991px) {
   .hero-intro { padding-left: 0; text-align: center; }
   .hero-intro .hero-name { font-size: 2.2rem; }
-  .hero-info-grid { justify-items: center; }
   .hero-cta-group { justify-content: center; }
   .hero-tech-stack { justify-content: center; }
+  .hero-info-grid {
+    justify-items: stretch;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media (max-width: 576px) {
-  .hero-img { width: 180px; height: 180px; }
-  .hero-img-ring { width: 200px; height: 200px; }
+  .hero-img { width: 160px; height: 160px; }
+  .hero-img-ring { width: 178px; height: 178px; }
   .hero-intro .hero-name { font-size: 1.8rem; }
-  .hero-info-grid { grid-template-columns: 1fr; }
+  .hero-info-grid { grid-template-columns: 1fr; max-width: 100%; }
 }
 
 /* ====== Floating 3D Cards ====== */
