@@ -199,7 +199,16 @@ const particlesCanvas = document.getElementById('particles-canvas');
 if (particlesCanvas) {
   const ctx = particlesCanvas.getContext('2d');
   let particles = [];
-  const count = 80;
+  const count = 180;
+  let mouse = { x: -9999, y: -9999 };
+  document.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  });
+  document.addEventListener('mouseleave', () => {
+    mouse.x = -9999;
+    mouse.y = -9999;
+  });
   function resizeCanvas() {
     particlesCanvas.width = window.innerWidth;
     particlesCanvas.height = window.innerHeight;
@@ -211,15 +220,23 @@ if (particlesCanvas) {
     reset() {
       this.x = Math.random() * particlesCanvas.width;
       this.y = Math.random() * particlesCanvas.height;
-      this.size = Math.random() * 2 + 0.5;
-      this.speedX = (Math.random() - 0.5) * 0.6;
-      this.speedY = (Math.random() - 0.5) * 0.6;
-      this.opacity = Math.random() * 0.5 + 0.1;
+      this.size = Math.random() * 1.5 + 0.5;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.speedY = (Math.random() - 0.5) * 0.5;
+      this.opacity = Math.random() * 0.5 + 0.2;
     }
     update() {
+      const dx = this.x - mouse.x;
+      const dy = this.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 120) {
+        const force = (120 - dist) / 120;
+        this.x += dx / dist * force * 6;
+        this.y += dy / dist * force * 6;
+      }
       this.x += this.speedX;
       this.y += this.speedY;
-      if (this.x < 0 || this.x > particlesCanvas.width || this.y < 0 || this.y > particlesCanvas.height) { this.reset(); }
+      if (this.x < -50 || this.x > particlesCanvas.width + 50 || this.y < -50 || this.y > particlesCanvas.height + 50) { this.reset(); }
     }
     draw() {
       ctx.beginPath();
@@ -241,7 +258,7 @@ if (particlesCanvas) {
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(0, 212, 255, ${0.06 * (1 - dist / 150)})`;
+          ctx.strokeStyle = `rgba(0, 212, 255, ${0.08 * (1 - dist / 150)})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
